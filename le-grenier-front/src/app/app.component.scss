@@ -11,6 +11,9 @@ nav .homepage-navigation {
   display: flex;
 }
 
-a {
-  padding: 0 15px;
+.routing-item {
+  display: flex;
+  min-width: 150px;
+  white-space: nowrap;
+  text-align: center;
 }
