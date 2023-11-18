@@ -1,0 +1,16 @@
+.homepage-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+nav .homepage-navigation {
+  display: flex;
+}
+
+a {
+  padding: 0 15px;
+}
