@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
+import {
+  TranslateModule,
+  TranslateService,
+  TranslateStore,
+} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-homepage',
@@ -15,7 +19,7 @@ import { TranslateModule, TranslateService, TranslateStore } from '@ngx-translat
     RouterModule,
     TranslateModule,
   ],
-  providers: [TranslateService, TranslateStore],
+  providers: [TranslateService],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
