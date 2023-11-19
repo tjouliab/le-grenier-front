@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import {
   TranslateModule,
   TranslateService,
-  TranslateStore,
 } from '@ngx-translate/core';
 import { LanguageDropdownComponent } from '../language-dropdown/language-dropdown.component';
 
