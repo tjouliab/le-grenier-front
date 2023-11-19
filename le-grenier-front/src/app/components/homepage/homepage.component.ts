@@ -8,6 +8,7 @@ import {
   TranslateService,
   TranslateStore,
 } from '@ngx-translate/core';
+import { LanguageDropdownComponent } from '../language-dropdown/language-dropdown.component';
 
 @Component({
   selector: 'app-homepage',
@@ -18,6 +19,7 @@ import {
     MatToolbarModule,
     RouterModule,
     TranslateModule,
+    LanguageDropdownComponent,
   ],
   providers: [TranslateService],
   templateUrl: './homepage.component.html',

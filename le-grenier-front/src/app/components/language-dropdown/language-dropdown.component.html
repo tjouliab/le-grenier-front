@@ -1,0 +1,10 @@
+<mat-form-field>
+  <mat-label>Languages</mat-label>
+  <mat-select>
+    @for (lang of languages; track lang) {
+    <mat-option [value]="lang.countryName">
+      {{ lang.countryName }}
+    </mat-option>
+    }
+  </mat-select>
+</mat-form-field>
