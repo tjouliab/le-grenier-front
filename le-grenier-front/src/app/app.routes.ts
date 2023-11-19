@@ -1,9 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
-import { AccueilComponent } from './pages/accueil/accueil.component';
-import { ChambresComponent } from './pages/chambres/chambres.component';
-import { RestaurationComponent } from './pages/restauration/restauration.component';
-import { ContactComponent } from './pages/contact/contact.component';
 import { NgModule } from '@angular/core';
+import { AccueilComponent } from './components/homepage/accueil/accueil.component';
+import { ChambresComponent } from './components/homepage/chambres/chambres.component';
+import { RestaurationComponent } from './components/homepage/restauration/restauration.component';
+import { ContactComponent } from './components/homepage/contact/contact.component';
 
 export const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
