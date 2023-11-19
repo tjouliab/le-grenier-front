@@ -1,9 +1,8 @@
 <mat-form-field>
-  <mat-label>Languages</mat-label>
   <mat-select [formControl]="languagesAbreviationForm">
     @for (lang of languages; track lang) {
     <mat-option [value]="lang.abreviation">
-      {{ lang.abreviation }}
+      {{ lang.name }}
     </mat-option>
     }
   </mat-select>
