@@ -3,12 +3,18 @@
   <span class="spacer"></span>
   <nav>
     <mat-list class="homepage-navigation">
-      <a class="routing-item" mat-list-item routerLink="/accueil">Accueil</a>
-      <a class="routing-item" mat-list-item routerLink="/chambres">Chambres</a>
-      <a class="routing-item" mat-list-item routerLink="/restauration"
-        >Restauration</a
-      >
-      <a class="routing-item" mat-list-item routerLink="/contact">Contact</a>
+      <a class="routing-item" mat-list-item routerLink="/accueil">{{
+        "HOMEPAGE.ACCUEIL" | translate
+      }}</a>
+      <a class="routing-item" mat-list-item routerLink="/chambres">{{
+        "HOMEPAGE.CHAMBRES" | translate
+      }}</a>
+      <a class="routing-item" mat-list-item routerLink="/restauration">{{
+        "HOMEPAGE.RESTAURATION" | translate
+      }}</a>
+      <a class="routing-item" mat-list-item routerLink="/contact">{{
+        "HOMEPAGE.CONTACT" | translate
+      }}</a>
     </mat-list>
   </nav>
 </mat-toolbar>
