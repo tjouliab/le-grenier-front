@@ -1,18 +1,7 @@
+// Header section
+
 .contact-section {
   text-align: center;
-}
-
-.contact-content {
-  display: flex;
-  justify-content: space-between;
-  max-width: 80%;
-  margin: auto;
-}
-
-.image-container img {
-  flex: 1;
-  padding: 10px;
-  margin-left: 20px;
 }
 
 .full-width-image {
@@ -21,19 +10,42 @@
   display: block;
 }
 
-.contact-info {
-  text-align: center;
+// Section Contact et Accès
+
+.contact-content {
+  display: flex;
+  max-width: 60%;
+  margin: auto;
+}
+
+.image-container {
   flex: 1;
-  padding: 10px;
+  margin-left: 20px;
 }
 
-.contact-info p {
+.image-container img {
+  max-width: 100%;
+}
+
+.contact-info {
   text-align: left;
-  max-width: 80%;
-  margin: 0 auto;
+  flex: 1;
+  margin: 20px;
 }
 
-.contact-info .contact-form {
+.icon-text-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-text-group mat-icon {
+  padding-right: 10px;
+}
+
+// Formulaire de Contact
+
+.contact-form {
   margin: 20px;
 }
 
@@ -46,29 +58,8 @@
   margin-bottom: 15px;
 }
 
-.form-group label {
-  text-align: left;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-group label::after {
-  content: "*";
+:host ::ng-deep .mat-mdc-form-field-required-marker {
   color: red;
-  margin-left: 3px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.form-group textarea {
-  height: 100px;
-  resize: vertical;
 }
 
 button {
@@ -91,14 +82,9 @@ button:hover {
 
 .form-row .form-group {
   flex: 1;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .form-row .form-group:last-child {
   margin-right: 0;
-}
-
-.contact-form form {
-  max-width: 500px;
-  margin: auto;
 }
