@@ -1,9 +1,26 @@
 {
-	"HOMEPAGE": {
-		"ACCUEIL": "Accueil",
-		"CHAMBRES": "Chambres",
-		"CONTACT": "Contact",
+  "CONTACT": {
+    "CONTACT_ACCES": "Contact & Accès",
+    "CONTACT_MAIL": "Email de contact",
+    "ENVOYER": "Envoyer",
+    "ENVOYEZ_MESSAGE": "Envoyez nous un message !",
+    "MESSAGE": "Message",
+    "NOM": "Nom",
+    "PLACEHOLDERS": {
+      "NOM": "Votre nom",
+      "MAIL": "Votre adresse mail",
+      "SUJET_MESSAGE": "Sujet de votre message",
+      "VOTRE_MESSAGE": "Votre message"
+    },
+    "PRESENTATION": "Nous serons heureux de vous accueillir au sein de notre hôtel de charme au centre de Strasbourg, à deux pas de la cathédrale. Pour plus d'informations sur nos tarifs et pour procéder à une réservation, n'hésitez pas nous contacter directement par téléphone ou à remplir le formulaire ci-dessous.",
+    "SUJET": "Sujet",
+    "USER_MAIL": "Adresse mail"
+  },
+  "HOMEPAGE": {
+    "ACCUEIL": "Accueil",
+    "CHAMBRES": "Chambres",
+    "CONTACT": "Contact",
     "LANGUE": "Langue",
-		"RESTAURATION": "Restauration"
-	}
+    "RESTAURATION": "Restauration"
+  }
 }

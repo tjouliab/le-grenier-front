@@ -5,13 +5,9 @@
   <!-- Section Contact et Accès -->
   <div class="contact-content">
     <div class="contact-info">
-      <h2>Contact & Accès</h2>
+      <h2>{{ "CONTACT.CONTACT_ACCES" | translate }}</h2>
       <p>
-        Nous serons heureux de vous accueillir au sein de notre hôtel de charme
-        au centre de Strasbourg, à deux pas de la cathédrale. Pour plus
-        d'informations sur nos tarifs et pour procéder à une réservation,
-        n'hésitez pas nous contacter directement par téléphone ou à remplir le
-        formulaire ci-dessous.
+        {{ "CONTACT.PRESENTATION" | translate }}
       </p>
       <div class="icon-text-group">
         <mat-icon>location_on</mat-icon>
@@ -23,7 +19,7 @@
       </div>
       <div class="icon-text-group">
         <mat-icon>alternate_email</mat-icon>
-        <span>Email de contact</span>
+        <span> {{ "CONTACT.CONTACT_MAIL" | translate }}</span>
       </div>
     </div>
     <div class="image-container">
@@ -33,46 +29,48 @@
 
   <!-- Formulaire de Contact -->
   <div class="contact-form">
-    <h2>Envoyez nous un message !</h2>
+    <h2>{{ "CONTACT.ENVOYEZ_MESSAGE" | translate }}</h2>
     <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
       <div class="form-row">
         <mat-form-field class="form-group">
-          <mat-label for="name">Nom</mat-label>
+          <mat-label for="name">{{ "CONTACT.NOM" | translate }}</mat-label>
           <input
             matInput
             type="text"
             formControlName="name"
-            placeholder="Votre nom"
+            [placeholder]="'CONTACT.PLACEHOLDERS.NOM' | translate"
           />
         </mat-form-field>
         <mat-form-field class="form-group">
-          <mat-label for="email">Adresse Mail</mat-label>
+          <mat-label for="email">{{
+            "CONTACT.USER_MAIL" | translate
+          }}</mat-label>
           <input
             matInput
             type="email"
             formControlName="email"
-            placeholder="Votre adresse mail"
+            [placeholder]="'CONTACT.PLACEHOLDERS.MAIL' | translate"
           />
         </mat-form-field>
       </div>
       <mat-form-field class="form-group">
-        <mat-label for="subject">Sujet</mat-label>
+        <mat-label for="subject">{{ "CONTACT.SUJET" | translate }}</mat-label>
         <input
           matInput
           type="text"
           formControlName="subject"
-          placeholder="Sujet de votre message"
+          [placeholder]="'CONTACT.PLACEHOLDERS.SUJET_MESSAGE' | translate"
         />
       </mat-form-field>
       <mat-form-field class="form-group">
-        <mat-label for="message">Message</mat-label>
+        <mat-label for="message">{{ "CONTACT.MESSAGE" | translate }}</mat-label>
         <textarea
           matInput
           formControlName="message"
-          placeholder="Votre message"
+          [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
         ></textarea>
       </mat-form-field>
-      <button type="submit">Envoyer</button>
+      <button type="submit">{{ "CONTACT.ENVOYER" | translate }}</button>
     </form>
   </div>
 </div>
