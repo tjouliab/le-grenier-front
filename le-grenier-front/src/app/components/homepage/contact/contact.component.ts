@@ -38,9 +38,7 @@ export class ContactComponent {
   ngOnInit() {}
 
   submitForm(): void {
-    if (!this.contactForm.valid) {
-      return;
-    }
-
+    console.log('submitFormValue', this.contactForm.value);
+    console.log('submitFormValid', this.contactForm.valid);
   }
 }
