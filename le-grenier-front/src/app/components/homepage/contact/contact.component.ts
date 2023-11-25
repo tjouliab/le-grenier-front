@@ -38,7 +38,9 @@ export class ContactComponent {
   ngOnInit() {}
 
   submitForm(): void {
-    console.log('submitFormValue', this.contactForm.value);
-    console.log('submitFormValid', this.contactForm.valid);
+    if (!this.contactForm.valid) {
+      return;
+    }
+    // TODO: call backend to send mail to support
   }
 }
