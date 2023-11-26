@@ -10,6 +10,8 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { SmtpService } from '../../../services/smtp.service';
+import { ContactFormMailDto } from '../../../dto/contactFormMailBody.dto';
 
 @Component({
   selector: 'app-contact',
@@ -33,7 +35,10 @@ export class ContactComponent {
     message: new FormControl('', [Validators.required]),
   });
 
-  constructor(private translate: TranslateService) {}
+  constructor(
+    private translate: TranslateService,
+    private smtpService: SmtpService
+  ) {}
 
   ngOnInit() {}
 
@@ -41,6 +46,17 @@ export class ContactComponent {
     if (!this.contactForm.valid) {
       return;
     }
-    // TODO: call backend to send mail to support
+
+    const contactFormDto: ContactFormMailDto = {
+      userName: this.contactForm.value.name ?? '',
+      userMail: this.contactForm.value.email ?? '',
+      subject: this.contactForm.value.subject ?? '',
+      message: this.contactForm.value.message ?? '',
+    };
+    this.smtpService.sendMail(contactFormDto).subscribe({
+      next: (response) => console.log(response),
+      error: (error) => console.error(error),
+      complete: () => console.info('complete'),
+    });
   }
 }
