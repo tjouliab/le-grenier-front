@@ -1,14 +1,23 @@
 .homepage-toolbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.homepage-logo {
+  height: 100%;
+  max-height: 100%;
+  width: auto;
+  margin-right: 1%;
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-nav .homepage-navigation {
+.homepage-navigation {
   display: flex;
+  align-items: center;
 }
 
 .routing-item {
@@ -20,4 +29,6 @@ nav .homepage-navigation {
 
 .language-dropdown {
   display: flex;
+  height: 80%;
+  width: auto;
 }
