@@ -17,10 +17,18 @@
     "USER_MAIL": "Adresse mail"
   },
   "HOMEPAGE": {
-    "ACCUEIL": "Accueil",
-    "CHAMBRES": "Chambres",
-    "CONTACT": "Contact",
-    "LANGUE": "Langue",
-    "RESTAURATION": "Restauration"
+    "HEADER": {
+      "ACCUEIL": "Accueil",
+      "CHAMBRES": "Chambres",
+      "CONTACT": "Contact",
+      "LANGUE": "Langue",
+      "RESTAURATION": "Restauration"
+    },
+    "FOOTER": {
+      "CGV": "CGV",
+      "CONFIDENTIALITY": "Politique de confidentialité",
+      "FAQ": "FAQ",
+      "LEGAL": "Mentions légales"
+    }
   }
 }

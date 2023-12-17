@@ -1,24 +1,56 @@
+<!-- Header -->
 <mat-toolbar class="homepage-toolbar" color="primary">
-  <img class="homepage-logo" src="assets/images/logo1.png" />
-  <span>Le Grenier</span>
+  <span> Le </span>
+  <img class="homepage-logo" src="assets/images/logo2.png" />
+  <span>renier</span>
   <span class="spacer"></span>
   <nav>
     <mat-list class="homepage-navigation">
       <a class="routing-item" mat-list-item routerLink="/accueil">{{
-        "HOMEPAGE.ACCUEIL" | translate
+        "HOMEPAGE.HEADER.ACCUEIL" | translate
       }}</a>
       <a class="routing-item" mat-list-item routerLink="/chambres">{{
-        "HOMEPAGE.CHAMBRES" | translate
+        "HOMEPAGE.HEADER.CHAMBRES" | translate
       }}</a>
       <a class="routing-item" mat-list-item routerLink="/restauration">{{
-        "HOMEPAGE.RESTAURATION" | translate
+        "HOMEPAGE.HEADER.RESTAURATION" | translate
       }}</a>
       <a class="routing-item" mat-list-item routerLink="/contact">{{
-        "HOMEPAGE.CONTACT" | translate
+        "HOMEPAGE.HEADER.CONTACT" | translate
       }}</a>
     </mat-list>
   </nav>
   <app-language-dropdown class="language-dropdown"></app-language-dropdown>
 </mat-toolbar>
 
+<!-- Page content -->
 <router-outlet></router-outlet>
+
+<!-- Footer -->
+<footer class="homepage-footer">
+  <div class="footer-info">
+    <img class="footer-logo" src="assets/images/logo1.png" />
+    <div class="contact-info">
+      <span class="contact-info-text"> {{ address }} </span>
+      <span class="contact-info-text"> {{ contactMail }} </span>
+      <span class="contact-info-text"> {{ contactPhone }} </span>
+    </div>
+  </div>
+  <div class="footer-links">
+    <div class="footer-links-routing">
+      <a class="routing-item-footer" href="#">
+        {{ "HOMEPAGE.FOOTER.LEGAL" | translate }}
+      </a>
+      <a class="routing-item-footer" href="#">
+        {{ "HOMEPAGE.FOOTER.CONFIDENTIALITY" | translate }}
+      </a>
+      <a class="routing-item-footer" href="#">
+        {{ "HOMEPAGE.FOOTER.CGV" | translate }}
+      </a>
+      <a class="routing-item-footer" href="#">
+        {{ "HOMEPAGE.FOOTER.FAQ" | translate }}
+      </a>
+    </div>
+    <p>&copy; {{ trademark }}</p>
+  </div>
+</footer>
