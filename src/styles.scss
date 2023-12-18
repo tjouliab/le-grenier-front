@@ -8,3 +8,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.text-body-format {
+  font-size: 16px;
+  @font-face {
+    font-family: Montserrat;
+    src: url("Fonts/Montserrat-Regular.otf");
+  }
+}

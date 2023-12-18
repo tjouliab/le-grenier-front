@@ -38,19 +38,29 @@
   </div>
   <div class="footer-links">
     <div class="footer-links-routing">
-      <a class="routing-item-footer" href="#">
+      <a class="routing-item-footer" routerLink="#">
         {{ "HOMEPAGE.FOOTER.LEGAL" | translate }}
       </a>
-      <a class="routing-item-footer" href="#">
+      <a class="routing-item-footer" routerLink="#">
         {{ "HOMEPAGE.FOOTER.CONFIDENTIALITY" | translate }}
       </a>
-      <a class="routing-item-footer" href="#">
+      <a class="routing-item-footer" routerLink="#">
         {{ "HOMEPAGE.FOOTER.CGV" | translate }}
       </a>
-      <a class="routing-item-footer" href="#">
+      <a class="routing-item-footer" routerLink="#">
         {{ "HOMEPAGE.FOOTER.FAQ" | translate }}
       </a>
     </div>
-    <p>&copy; {{ trademark }}</p>
+    <p class="footer-trademark">&copy; {{ trademark }}</p>
+    <div class="footer-profile-link">
+      <p style='margin: 0;'>Created by:&nbsp;</p>
+      <a
+        class="profile-link"
+        href="https://www.linkedin.com/in/timoth%C3%A9-joulia-b%C3%A9a-481346204/"
+        target="_blank"
+      >
+        Timothé JOULIA-BEA</a
+      >
+    </div>
   </div>
 </footer>
