@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/colors.scss";
 
 html,
 body {
@@ -9,10 +9,19 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.title-body-format {
+  font-size: 28px;
+  color: $blue;
+  @font-face {
+    font-family: Montserrat;
+    src: url("assets/Fonts/Montserrat-Medium.otf");
+  }
+}
+
 .text-body-format {
   font-size: 16px;
   @font-face {
     font-family: Montserrat;
-    src: url("Fonts/Montserrat-Regular.otf");
+    src: url("assets/Fonts/Montserrat-Light.otf");
   }
 }

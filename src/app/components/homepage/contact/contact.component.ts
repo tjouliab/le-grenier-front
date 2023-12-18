@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SmtpService } from '../../../services/smtp.service';
 import { ContactFormMailDto } from '../../../dto/contactFormMailBody.dto';
+import { ADDRESS, CONTACT_EMAIL, CONTACT_PHONE } from '../../../../environment';
 
 @Component({
   selector: 'app-contact',
@@ -28,6 +29,10 @@ import { ContactFormMailDto } from '../../../dto/contactFormMailBody.dto';
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
+  address: string;
+  contactMail: string;
+  contactPhone: string;
+
   contactForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -38,9 +43,11 @@ export class ContactComponent {
   constructor(
     private translate: TranslateService,
     private smtpService: SmtpService
-  ) {}
-
-  ngOnInit() {}
+  ) {
+    this.address = ADDRESS;
+    this.contactMail = CONTACT_EMAIL;
+    this.contactPhone = CONTACT_PHONE;
+  }
 
   submitForm(): void {
     if (!this.contactForm.valid) {

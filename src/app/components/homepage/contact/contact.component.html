@@ -5,25 +5,23 @@
   <!-- Section Contact et Accès -->
   <div class="contact-content">
     <div class="contact-info">
-      <h2>{{ "CONTACT.CONTACT_ACCES" | translate }}</h2>
+      <p class="title-body-format">{{ "CONTACT.CONTACT_ACCES" | translate }}</p>
       <p class="text-body-format">
         {{ "CONTACT.PRESENTATION" | translate }}
       </p>
-      <div class="icon-text-group">
-        <mat-icon>location_on</mat-icon>
-        <span class="text-body-format"
-          >1 Rue du Vieux-Marché-aux-Poissons, 67000, Strasbourg</span
-        >
-      </div>
-      <div class="icon-text-group">
-        <mat-icon>phone_iphone</mat-icon>
-        <span class="text-body-format">07 49 95 90 24</span>
-      </div>
-      <div class="icon-text-group">
-        <mat-icon>alternate_email</mat-icon>
-        <span class="text-body-format">
-          {{ "CONTACT.CONTACT_MAIL" | translate }}</span
-        >
+      <div>
+        <div class="icon-text-group">
+          <mat-icon>location_on</mat-icon>
+          <span class="text-body-format">{{ address }}</span>
+        </div>
+        <div class="icon-text-group">
+          <mat-icon>alternate_email</mat-icon>
+          <span class="text-body-format">{{ contactMail }}</span>
+        </div>
+        <div class="icon-text-group">
+          <mat-icon>phone_iphone</mat-icon>
+          <span class="text-body-format">{{ contactPhone }}</span>
+        </div>
       </div>
     </div>
     <div class="image-container">
@@ -33,7 +31,7 @@
 
   <!-- Formulaire de Contact -->
   <div class="contact-form">
-    <h2>{{ "CONTACT.ENVOYEZ_MESSAGE" | translate }}</h2>
+    <p class="title-body-format">{{ "CONTACT.ENVOYEZ_MESSAGE" | translate }}</p>
     <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
       <div class="form-row">
         <mat-form-field class="form-group">
