@@ -9,19 +9,28 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+@font-face {
+  font-family: "Yanone Kaffeesatz";
+  src: url("assets/Fonts/YanoneKaffeesatz-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
 .title-body-format {
-  font-size: 28px;
-  color: $blue;
-  @font-face {
-    font-family: Montserrat;
-    src: url("assets/Fonts/Montserrat-Medium.otf");
-  }
+  font-size: 40px;
+  color: $khaki;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/Fonts/Montserrat-Regular.otf");
+  font-weight: lighter;
+  font-style: normal;
 }
 
 .text-body-format {
   font-size: 16px;
-  @font-face {
-    font-family: Montserrat;
-    src: url("assets/Fonts/Montserrat-Light.otf");
-  }
+  color: $black;
+  font-family: "Montserrat", sans-serif;
 }

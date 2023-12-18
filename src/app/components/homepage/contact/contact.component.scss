@@ -16,15 +16,15 @@
   display: flex;
   max-width: 60%;
   margin: auto;
+  margin-top: 25px;
 }
 
 .image-container {
   flex: 1;
-  margin-left: 20px;
 }
 
 .image-container img {
-  max-width: 100%;
+  max-width: 70%;
 }
 
 .contact-info {
@@ -44,6 +44,10 @@
 
 .icon-text-group mat-icon {
   padding-right: 10px;
+}
+
+.icon-text-group span {
+  white-space: nowrap;
 }
 
 // Formulaire de Contact
