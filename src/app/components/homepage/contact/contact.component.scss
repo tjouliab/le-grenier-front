@@ -1,5 +1,6 @@
-// Header section
+@import "../../../../styles/colors.scss";
 
+// Header section
 .contact-section {
   text-align: center;
 }
@@ -11,7 +12,6 @@
 }
 
 // Section Contact et Accès
-
 .contact-content {
   display: flex;
   max-width: 60%;
@@ -44,6 +44,7 @@
 
 .icon-text-group mat-icon {
   padding-right: 10px;
+  color: $blue;
 }
 
 .icon-text-group span {
@@ -51,7 +52,6 @@
 }
 
 // Formulaire de Contact
-
 .contact-form {
   margin: 20px;
 }

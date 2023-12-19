@@ -1,0 +1,75 @@
+@use "@angular/material" as mat;
+@import "./colors.scss";
+@include mat.core();
+
+$bv-pink: (
+  50: $pink,
+  100: $pink,
+  200: $pink,
+  300: $pink,
+  400: $pink,
+  500: $pink,
+  600: $pink,
+  700: $pink,
+  800: $pink,
+  900: $pink,
+  A100: $pink,
+  A200: $pink,
+  A400: $pink,
+  A700: $pink,
+  contrast: (
+    50: $pink,
+    100: $pink,
+    200: $pink,
+    300: $pink,
+    400: $pink,
+    500: $pink,
+    600: $pink,
+    700: $pink,
+    800: $pink,
+    900: $pink,
+    A100: $pink,
+    A200: $pink,
+    A400: $pink,
+    A700: $pink,
+  ),
+);
+
+$bv-blue: (
+  50: $blue,
+  100: $blue,
+  200: $blue,
+  300: $blue,
+  400: $blue,
+  500: $blue,
+  600: $blue,
+  700: $blue,
+  800: $blue,
+  900: $blue,
+  A100: $blue,
+  A200: $blue,
+  A400: $blue,
+  A700: $blue,
+  contrast: (
+    50: $blue,
+    100: $blue,
+    200: $blue,
+    300: $blue,
+    400: $blue,
+    500: $blue,
+    600: $blue,
+    700: $blue,
+    800: $blue,
+    900: $blue,
+    A100: $blue,
+    A200: $blue,
+    A400: $blue,
+    A700: $blue,
+  ),
+);
+
+$my-app-primary: mat.define-palette($bv-pink);
+$my-app-accent: mat.define-palette($bv-blue);
+$my-app-theme: mat.define-light-theme($my-app-primary, $my-app-accent);
+
+@include mat.all-component-themes($my-app-theme);
