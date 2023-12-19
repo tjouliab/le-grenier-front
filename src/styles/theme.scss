@@ -68,8 +68,46 @@ $bv-blue: (
   ),
 );
 
+$bv-red: (
+  50: $red,
+  100: $red,
+  200: $red,
+  300: $red,
+  400: $red,
+  500: $red,
+  600: $red,
+  700: $red,
+  800: $red,
+  900: $red,
+  A100: $red,
+  A200: $red,
+  A400: $red,
+  A700: $red,
+  contrast: (
+    50: $red,
+    100: $red,
+    200: $red,
+    300: $red,
+    400: $red,
+    500: $red,
+    600: $red,
+    700: $red,
+    800: $red,
+    900: $red,
+    A100: $red,
+    A200: $red,
+    A400: $red,
+    A700: $red,
+  ),
+);
+
 $my-app-primary: mat.define-palette($bv-pink);
 $my-app-accent: mat.define-palette($bv-blue);
-$my-app-theme: mat.define-light-theme($my-app-primary, $my-app-accent);
+$my-app-warn: mat.define-palette($bv-red);
+$my-app-theme: mat.define-light-theme(
+  $my-app-primary,
+  $my-app-accent,
+  $my-app-warn
+);
 
 @include mat.all-component-themes($my-app-theme);
