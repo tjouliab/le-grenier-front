@@ -5,7 +5,9 @@
   <!-- Section Contact et Accès -->
   <div class="contact-content">
     <div class="contact-info">
-      <p class="title-body-format">{{ "CONTACT.CONTACT_ACCES" | translate }}</p>
+      <span class="title-body-format">{{
+        "CONTACT.CONTACT_ACCES" | translate
+      }}</span>
       <p class="text-body-format">
         {{ "CONTACT.PRESENTATION" | translate }}
       </p>
@@ -31,7 +33,9 @@
 
   <!-- Formulaire de Contact -->
   <div class="contact-form">
-    <p class="title-body-format">{{ "CONTACT.ENVOYEZ_MESSAGE" | translate }}</p>
+    <span class="title-body-format">{{
+      "CONTACT.ENVOYEZ_MESSAGE" | translate
+    }}</span>
     <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
       <div class="form-row">
         <mat-form-field class="form-group">
@@ -72,7 +76,9 @@
           [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
         ></textarea>
       </mat-form-field>
-      <button type="submit">{{ "CONTACT.ENVOYER" | translate }}</button>
+      <button class="submit-button" type="submit">
+        {{ "CONTACT.ENVOYER" | translate }}
+      </button>
     </form>
   </div>
 </div>
