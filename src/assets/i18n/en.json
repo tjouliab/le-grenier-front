@@ -1,8 +1,10 @@
 {
-	"HOMEPAGE": {
-		"ACCUEIL": "Home",
-		"CHAMBRES": "Bedrooms",
-		"CONTACT": "Contact",
-		"RESTAURATION": "Restoration"
-	}
+  "HOMEPAGE": {
+    "HEADER": {
+      "ACCUEIL": "Home",
+      "CHAMBRES": "Bedrooms",
+      "CONTACT": "Contact",
+      "RESTAURATION": "Restoration"
+    }
+  }
 }
