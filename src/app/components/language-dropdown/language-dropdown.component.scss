@@ -16,3 +16,9 @@
 ::ng-deep .ng-trigger {
   background-color: $white !important;
 }
+
+.option-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

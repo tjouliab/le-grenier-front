@@ -25,6 +25,7 @@ interface Language {
   styleUrl: './language-dropdown.component.scss',
 })
 export class LanguageDropdownComponent {
+  flagIconPath: string = '../../../assets/images/flags/';
   languagesAbreviationForm = new FormControl();
   languages: Language[] = [
     {
@@ -63,5 +64,9 @@ export class LanguageDropdownComponent {
         this.translate.use(usedLanguage.code);
       }
     });
+  }
+
+  getFlagIconPath(code: string): string {
+    return `${this.flagIconPath}${code}.png`;
   }
 }
