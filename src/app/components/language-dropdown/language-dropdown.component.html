@@ -1,9 +1,21 @@
 <mat-form-field appearance="fill">
   <mat-select [formControl]="languagesAbreviationForm">
+    <mat-select-trigger>
+      <div class="option-content">
+        <img
+          [src]="
+            getFlagIconPath(getSelectedLanguage(languagesAbreviationForm.value))
+          "
+        />
+        <span>
+          {{ getSelectedLanguage(languagesAbreviationForm.value).name }}
+        </span>
+      </div>
+    </mat-select-trigger>
     @for (lang of languages; track lang) {
     <mat-option [value]="lang.abreviation">
       <div class="option-content">
-        <img [src]="getFlagIconPath(lang.code)" />
+        <img [src]="getFlagIconPath(lang)" />
         <span>
           {{ lang.name }}
         </span>

@@ -66,7 +66,11 @@ export class LanguageDropdownComponent {
     });
   }
 
-  getFlagIconPath(code: string): string {
-    return `${this.flagIconPath}${code}.png`;
+  getFlagIconPath(lang: Language): string {
+    return `${this.flagIconPath}${lang.code}.png`;
+  }
+
+  getSelectedLanguage(abreviation: string): Language {
+    return this.languages.find((lang) => lang.abreviation === abreviation);
   }
 }
