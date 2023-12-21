@@ -2,10 +2,16 @@ import { Component, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageDropdownComponent } from '../language-dropdown/language-dropdown.component';
-import { ADDRESS, CONTACT_EMAIL, CONTACT_PHONE, TRADEMARK } from '../../../environment';
+import {
+  ADDRESS,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  TRADEMARK,
+} from '../../../environment';
+import { AutoFocusDirective } from '../../directives/autofocus.directive';
 
 @Component({
   selector: 'app-homepage',
@@ -17,6 +23,7 @@ import { ADDRESS, CONTACT_EMAIL, CONTACT_PHONE, TRADEMARK } from '../../../envir
     RouterModule,
     TranslateModule,
     LanguageDropdownComponent,
+    AutoFocusDirective,
   ],
   providers: [TranslateService],
   templateUrl: './homepage.component.html',
@@ -28,10 +35,14 @@ export class HomepageComponent {
   contactPhone: string;
   trademark: string;
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private router: Router) {
     this.address = ADDRESS;
     this.contactMail = CONTACT_EMAIL;
     this.contactPhone = CONTACT_PHONE;
     this.trademark = TRADEMARK;
+  }
+
+  getAutofocus(routerLink: string): boolean {
+    return this.router.url.includes(routerLink);
   }
 }

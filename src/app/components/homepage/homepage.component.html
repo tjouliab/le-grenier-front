@@ -6,25 +6,41 @@
   <span class="spacer"></span>
   <nav>
     <mat-list class="homepage-navigation">
-      <a class="routing-item" mat-list-item routerLink="/accueil">{{
-        "HOMEPAGE.HEADER.ACCUEIL" | translate
-      }}</a>
-      <a class="routing-item" mat-list-item routerLink="/chambres">{{
-        "HOMEPAGE.HEADER.CHAMBRES" | translate
-      }}</a>
-      <a class="routing-item" mat-list-item routerLink="/restauration">{{
-        "HOMEPAGE.HEADER.RESTAURATION" | translate
-      }}</a>
-      <a class="routing-item" mat-list-item routerLink="/contact">{{
-        "HOMEPAGE.HEADER.CONTACT" | translate
-      }}</a>
+      <a
+        class="routing-item"
+        mat-list-item
+        routerLink="/accueil"
+        [autofocus]="getAutofocus('/accueil')"
+        >{{ "HOMEPAGE.HEADER.ACCUEIL" | translate }}</a
+      >
+      <a
+        class="routing-item"
+        mat-list-item
+        routerLink="/chambres"
+        [autofocus]="getAutofocus('/chambres')"
+        >{{ "HOMEPAGE.HEADER.CHAMBRES" | translate }}</a
+      >
+      <a
+        class="routing-item"
+        mat-list-item
+        routerLink="/restauration"
+        [autofocus]="getAutofocus('/restauration')"
+        >{{ "HOMEPAGE.HEADER.RESTAURATION" | translate }}</a
+      >
+      <a
+        class="routing-item"
+        mat-list-item
+        routerLink="/contact"
+        [autofocus]="getAutofocus('/contact')"
+        >{{ "HOMEPAGE.HEADER.CONTACT" | translate }}</a
+      >
     </mat-list>
   </nav>
   <app-language-dropdown class="language-dropdown"></app-language-dropdown>
 </mat-toolbar>
 
 <!-- Page content -->
-<router-outlet class='page-content'></router-outlet>
+<router-outlet class="page-content"></router-outlet>
 
 <!-- Footer -->
 <footer class="homepage-footer">
@@ -53,7 +69,7 @@
     </div>
     <p class="footer-trademark">&copy; {{ trademark }}</p>
     <div class="footer-profile-link">
-      <p style='margin: 0;'>Created by:&nbsp;</p>
+      <p style="margin: 0">Created by:&nbsp;</p>
       <a
         class="profile-link"
         href="https://www.linkedin.com/in/timoth%C3%A9-joulia-b%C3%A9a-481346204/"

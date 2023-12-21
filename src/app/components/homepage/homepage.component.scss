@@ -25,9 +25,19 @@
 
 .routing-item {
   display: flex;
+  height: 100%;
   min-width: 150px;
   white-space: nowrap;
   text-align: center;
+}
+
+.routing-item:hover {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+:host ::ng-deep .mat-mdc-list-item:not(.mat-mdc-list-item-interactive),
+.mat-mdc-list-option:not(.mat-mdc-list-item-interactive) {
+  cursor: pointer;
 }
 
 .language-dropdown {
