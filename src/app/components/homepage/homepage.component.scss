@@ -19,16 +19,17 @@
 }
 
 .homepage-navigation {
-  display: flex;
-  align-items: center;
+  display: table;
+  width: 80%;
+  table-layout: fixed;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .routing-item {
-  display: flex;
-  height: 100%;
-  min-width: 150px;
-  white-space: nowrap;
+  display: table-cell;
   text-align: center;
+  vertical-align: middle;
 }
 
 .routing-item:hover {

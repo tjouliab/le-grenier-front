@@ -1,34 +1,34 @@
 <!-- Header -->
 <mat-toolbar class="homepage-toolbar">
-  <span> Le </span>
+  <span class="logo-header-format">Le </span>
   <img class="homepage-logo" src="assets/images/logo2.png" />
-  <span>renier</span>
+  <span class="logo-header-format">renier</span>
   <span class="spacer"></span>
   <nav>
     <mat-list class="homepage-navigation">
       <a
-        class="routing-item"
+        class="routing-item title-header-format"
         mat-list-item
         routerLink="/accueil"
         [autofocus]="getAutofocus('/accueil')"
         >{{ "HOMEPAGE.HEADER.ACCUEIL" | translate }}</a
       >
       <a
-        class="routing-item"
+        class="routing-item title-header-format"
         mat-list-item
         routerLink="/chambres"
         [autofocus]="getAutofocus('/chambres')"
         >{{ "HOMEPAGE.HEADER.CHAMBRES" | translate }}</a
       >
       <a
-        class="routing-item"
+        class="routing-item title-header-format"
         mat-list-item
         routerLink="/restauration"
         [autofocus]="getAutofocus('/restauration')"
         >{{ "HOMEPAGE.HEADER.RESTAURATION" | translate }}</a
       >
       <a
-        class="routing-item"
+        class="routing-item title-header-format"
         mat-list-item
         routerLink="/contact"
         [autofocus]="getAutofocus('/contact')"

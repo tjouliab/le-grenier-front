@@ -7,7 +7,7 @@
             getFlagIconPath(getSelectedLanguage(languagesAbreviationForm.value))
           "
         />
-        <span>
+        <span class="text-header-format">
           {{ getSelectedLanguage(languagesAbreviationForm.value).name }}
         </span>
       </div>
@@ -16,7 +16,7 @@
     <mat-option [value]="lang.abreviation">
       <div class="option-content">
         <img [src]="getFlagIconPath(lang)" />
-        <span>
+        <span class="text-header-format">
           {{ lang.name }}
         </span>
       </div>
