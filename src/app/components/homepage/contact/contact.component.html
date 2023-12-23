@@ -45,7 +45,7 @@
             type="text"
             formControlName="name"
             [placeholder]="'CONTACT.PLACEHOLDERS.NOM' | translate"
-            maxlength="50"
+            [maxlength]="FormMaxLength.NAME"
           />
         </mat-form-field>
         <mat-form-field class="form-group">
@@ -57,7 +57,7 @@
             type="email"
             formControlName="email"
             [placeholder]="'CONTACT.PLACEHOLDERS.MAIL' | translate"
-            maxlength="50"
+            [maxlength]="FormMaxLength.EMAIL"
           />
         </mat-form-field>
       </div>
@@ -68,7 +68,7 @@
           type="text"
           formControlName="subject"
           [placeholder]="'CONTACT.PLACEHOLDERS.SUJET_MESSAGE' | translate"
-          maxlength="100"
+          [maxlength]="FormMaxLength.SUBJECT"
         />
       </mat-form-field>
       <mat-form-field class="form-group">
@@ -78,7 +78,7 @@
           class="message-textarea"
           formControlName="message"
           [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
-          maxlength="500"
+          [maxlength]="FormMaxLength.MESSAGE"
         ></textarea>
       </mat-form-field>
       <button class="button-body-format submit-button" type="submit">

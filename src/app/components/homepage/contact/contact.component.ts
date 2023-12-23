@@ -33,20 +33,30 @@ export class ContactComponent {
   contactMail: string;
   contactPhone: string;
 
+  FormMaxLength = {
+    NAME: 50,
+    EMAIL: 50,
+    SUBJECT: 100,
+    MESSAGE: 500,
+  };
+
   contactForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(this.FormMaxLength.NAME),
+    ]),
     email: new FormControl('', [
       Validators.required,
       Validators.email,
-      Validators.maxLength(50),
+      Validators.maxLength(this.FormMaxLength.EMAIL),
     ]),
     subject: new FormControl('', [
       Validators.required,
-      Validators.maxLength(100),
+      Validators.maxLength(this.FormMaxLength.SUBJECT),
     ]),
     message: new FormControl('', [
       Validators.required,
-      Validators.maxLength(500),
+      Validators.maxLength(this.FormMaxLength.MESSAGE),
     ]),
   });
 

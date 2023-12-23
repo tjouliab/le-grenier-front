@@ -1,0 +1,33 @@
+@import "../../../../../styles/colors.scss";
+
+.reservation-container {
+  height: 100vh; /* 100% de la hauteur de la fenêtre de visualisation */
+  border-radius: 5px;
+}
+
+.reservation-form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.reservation-form input,
+.reservation-form button {
+  display: block;
+  width: 100%;
+}
+
+.submit-button {
+  width: 50%;
+  background-color: $blue;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: $hover-blue;
+}

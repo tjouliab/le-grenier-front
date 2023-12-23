@@ -1,0 +1,28 @@
+<div class="reservation-container">
+  <form
+    class="reservation-form"
+    [formGroup]="reservationForm"
+    (ngSubmit)="submitForm()"
+  >
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date" [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Heure</mat-label>
+      <input matInput type="time" formControlName="time" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de personnes</mat-label>
+      <input matInput type="number" formControlName="personNumber" />
+    </mat-form-field>
+
+    <button class="button-body-format submit-button" type="submit">
+      Réserver
+    </button>
+  </form>
+</div>
