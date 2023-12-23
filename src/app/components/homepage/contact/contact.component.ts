@@ -34,10 +34,20 @@ export class ContactComponent {
   contactPhone: string;
 
   contactForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    subject: new FormControl('', [Validators.required]),
-    message: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      Validators.maxLength(50),
+    ]),
+    subject: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(100),
+    ]),
+    message: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(500),
+    ]),
   });
 
   constructor(

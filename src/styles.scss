@@ -10,14 +10,14 @@ body {
 }
 
 @font-face {
-  font-family: "Yanone Kaffeesatz";
+  font-family: "Yanone-Kaffeesatz-Regular";
   src: url("assets/Fonts/YanoneKaffeesatz-Regular.ttf");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Montserrat-Regular";
   src: url("assets/Fonts/Montserrat-Regular.otf");
   font-weight: lighter;
   font-style: normal;
@@ -26,30 +26,42 @@ body {
 .title-body-format {
   font-size: 40px;
   color: $khaki;
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Yanone-Kaffeesatz-Regular", sans-serif;
 }
 
 .text-body-format {
   font-size: 16px;
   color: $black;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat-Regular", sans-serif;
   line-height: 160%;
+}
+
+.button-body-format {
+  font-size: 14px;
+  color: $white;
+  font-family: "Montserrat-Regular", sans-serif;
 }
 
 .title-header-format {
   font-size: 30px;
   color: $khaki;
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Yanone-Kaffeesatz-Regular", sans-serif;
 }
 
 .text-header-format {
   font-size: 14px;
   color: $black;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat-Regular", sans-serif;
 }
 
 .logo-header-format {
   font-size: 30px;
   color: $black;
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Yanone-Kaffeesatz-Regular", sans-serif;
+}
+
+.text-footer-format {
+  font-size: 12px;
+  color: white;
+  font-family: "Montserrat-Regular", sans-serif;
 }

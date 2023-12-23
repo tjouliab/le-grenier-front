@@ -45,6 +45,7 @@
             type="text"
             formControlName="name"
             [placeholder]="'CONTACT.PLACEHOLDERS.NOM' | translate"
+            maxlength="50"
           />
         </mat-form-field>
         <mat-form-field class="form-group">
@@ -56,6 +57,7 @@
             type="email"
             formControlName="email"
             [placeholder]="'CONTACT.PLACEHOLDERS.MAIL' | translate"
+            maxlength="50"
           />
         </mat-form-field>
       </div>
@@ -66,17 +68,20 @@
           type="text"
           formControlName="subject"
           [placeholder]="'CONTACT.PLACEHOLDERS.SUJET_MESSAGE' | translate"
+          maxlength="100"
         />
       </mat-form-field>
       <mat-form-field class="form-group">
         <mat-label for="message">{{ "CONTACT.MESSAGE" | translate }}</mat-label>
         <textarea
           matInput
+          class="message-textarea"
           formControlName="message"
           [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
+          maxlength="500"
         ></textarea>
       </mat-form-field>
-      <button class="submit-button" type="submit">
+      <button class="button-body-format submit-button" type="submit">
         {{ "CONTACT.ENVOYER" | translate }}
       </button>
     </form>
