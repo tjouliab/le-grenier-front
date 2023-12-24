@@ -21,17 +21,24 @@
 .meal-details {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 15px;
   align-items: center;
 }
 
 .meal-header {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 100%;
+  align-self: flex-start;
 }
 
 .meal-title {
+  margin: 0;
+  padding: 0;
+}
+
+.price {
+  color: green;
   margin: 0;
   padding: 0;
 }
@@ -43,3 +50,13 @@
   padding: 0;
 }
 
+.meal-display-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.allergens {
+  margin: 0;
+  padding: 0;
+}

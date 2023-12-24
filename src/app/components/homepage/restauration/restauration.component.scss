@@ -21,6 +21,16 @@
   margin-top: 10px;
 }
 
+.spacer {
+  height: 10vh;
+}
+
+.categories-title {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
 .meal-list {
   display: grid;
   grid-template-columns: 1fr 1fr;

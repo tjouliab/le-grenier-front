@@ -2,12 +2,34 @@
   <!-- Image d'une table d'hôtes -->
   <img src="assets/images/Grenier2.png" class="full-width-image" />
   <div class="restauration-container">
-    <!-- Liste des différents plats -->
-    <!-- <div class="meal-list"></div> -->
-    <div class="meal-list">
-      @for(meal of mealsToDisplay; track meal) {
-      <app-meal [meal]="meal"></app-meal>
-      }
+    <div>
+      <div class="spacer"></div>
+      <!-- Liste des différentes entrées -->
+      <p class="title-body-format categories-title">Entrées</p>
+      <div class="meal-list">
+        @for(meal of entriesList; track meal) {
+        <app-meal [meal]="meal"></app-meal>
+        }
+      </div>
+
+      <div class="spacer"></div>
+      <!-- Liste des différents plats -->
+      <p class="title-body-format categories-title">Plats</p>
+      <div class="meal-list">
+        @for(meal of mainList; track meal) {
+        <app-meal [meal]="meal"></app-meal>
+        }
+      </div>
+
+      <div class="spacer"></div>
+      <!-- Liste des différents desserts -->
+      <p class="title-body-format categories-title">Desserts</p>
+      <div class="meal-list">
+        @for(meal of dessertList; track meal) {
+        <app-meal [meal]="meal"></app-meal>
+        }
+      </div>
+      <div class="spacer"></div>
     </div>
     <!-- Reservation non scrollable -->
     <app-reservation class="reservation-container"></app-reservation>

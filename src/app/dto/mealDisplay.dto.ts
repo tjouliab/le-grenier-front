@@ -15,9 +15,9 @@ export enum MealPrices {
 }
 
 export enum MealTypes {
-  Entry = 'Entrée',
-  Main = 'Plat principal',
-  Desssert = 'Dessert',
+  Entry = 1,
+  Main = 2,
+  Dessert = 3,
 }
 
 export class Allergy {

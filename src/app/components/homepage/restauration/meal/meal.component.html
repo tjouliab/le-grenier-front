@@ -4,13 +4,15 @@
   </div>
   <div class="meal-details">
     <div class="meal-header">
-      <p class="meal-title">{{ mealTitle }}</p>
-      <p class="chef-name">{{ chefName }}</p>
+      <div class="meal-display-row">
+        <p class="title-widget-format meal-title">{{ mealTitle }}</p>
+        <p class="title-widget-format price">{{ price }}</p>
+      </div>
+      <p class="subtitle-widget-format chef-name">{{ chefName }}</p>
     </div>
-    <p class="meal-description">{{ description }}</p>
-    <div class="meal-footer">
+    <p class="text-body-format">{{ description }}</p>
+    <!-- <div class="meal-display-row">
       <p class="allergens">Allergènes</p>
-      <p class="price">{{ price }}</p>
-    </div>
+    </div> -->
   </div>
 </div>
