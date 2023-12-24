@@ -25,13 +25,13 @@ export class RestaurationComponent {
       type: MealTypes.Main,
       price: MealPrices.Cheap,
       description:
-        "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
+        "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
       allergies: [],
     },
     {
       imagePath: 'assets/images/meals/meal-placeholder.png',
       chefName: 'Mattéo',
-      mealTitle: 'Pâtes au pesto',
+      mealTitle: 'Pâtes au pesto Pâtes au pesto Pâtes au pesto',
       type: MealTypes.Main,
       price: MealPrices.Expensive,
       description:
