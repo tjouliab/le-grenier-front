@@ -4,6 +4,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import moment from 'moment';
+
 interface Language {
   code: string;
   name: string;
@@ -62,6 +64,7 @@ export class LanguageDropdownComponent {
       );
       if (usedLanguage) {
         this.translate.use(usedLanguage.code);
+        moment.locale(usedLanguage.code);
       }
     });
   }

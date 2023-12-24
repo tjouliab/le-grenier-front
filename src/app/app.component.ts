@@ -1,11 +1,9 @@
-import { Component, Injectable } from '@angular/core';
+import { Component } from '@angular/core';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import {
-  TranslateModule,
-  TranslateService,
-  TranslateStore,
-} from '@ngx-translate/core';
-import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import moment from 'moment';
+import 'moment/locale/fr';
+import 'moment/locale/de';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +18,6 @@ export class AppComponent {
     this.translate.setDefaultLang('fr');
     this.translate.addLangs(['en', 'fr', 'de']);
     this.translate.use('fr');
+    moment.locale('fr');
   }
 }

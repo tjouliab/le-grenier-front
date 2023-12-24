@@ -1,28 +1,49 @@
 <div class="reservation-container">
+  <div class="spacer"></div>
   <form
     class="reservation-form"
     [formGroup]="reservationForm"
     (ngSubmit)="submitForm()"
   >
     <mat-form-field appearance="fill">
-      <mat-label>Date</mat-label>
-      <input matInput formControlName="date" [matDatepicker]="picker" />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-label>{{ "RESTAURATION.RESERVATION.DATE" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="date"
+        [matDatepicker]="picker"
+        [min]="minDate"
+        [max]="maxDate"
+        [placeholder]="datePlaceholder"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"
+        ><mat-icon matDatepickerToggleIcon
+          >keyboard_arrow_down</mat-icon
+        ></mat-datepicker-toggle
+      >
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Heure</mat-label>
-      <input matInput type="time" formControlName="time" />
+      <mat-label>{{ "RESTAURATION.RESERVATION.TIME" | translate }}</mat-label>
+      <input matInput type="time" formControlName="time" placeholder="hh:mm" />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Nombre de personnes</mat-label>
-      <input matInput type="number" formControlName="personNumber" />
+      <mat-label>{{
+        "RESTAURATION.RESERVATION.PERSON_NUMBER" | translate
+      }}</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="personNumber"
+        [min]="InputPersonMinMax.MIN"
+        [max]="InputPersonMinMax.MAX"
+      />
     </mat-form-field>
 
     <button class="button-body-format submit-button" type="submit">
-      Réserver
+      {{ "RESTAURATION.RESERVATION.RESERVATION" | translate }}
     </button>
   </form>
+  <div class="spacer"></div>
 </div>

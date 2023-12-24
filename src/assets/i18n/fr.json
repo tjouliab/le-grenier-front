@@ -30,5 +30,13 @@
       "FAQ": "FAQ",
       "LEGAL": "Mentions légales"
     }
+  },
+  "RESTAURATION": {
+    "RESERVATION": {
+      "DATE": "Date",
+      "PERSON_NUMBER": "Nombre de personnes",
+      "RESERVATION": "Réserver",
+      "TIME": "Heure"
+    }
   }
 }
