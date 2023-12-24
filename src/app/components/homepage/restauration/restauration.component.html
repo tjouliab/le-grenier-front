@@ -3,9 +3,13 @@
   <img src="assets/images/Grenier2.png" class="full-width-image" />
   <div class="restauration-container">
     <!-- Liste des différents plats -->
-    <div class="meal-list"></div>
-
-    <!-- Reservation scroll stick -->
+    <!-- <div class="meal-list"></div> -->
+    <div class="meal-list">
+      @for(meal of mealsToDisplay; track meal) {
+      <app-meal [meal]="meal"></app-meal>
+      }
+    </div>
+    <!-- Reservation non scrollable -->
     <app-reservation class="reservation-container"></app-reservation>
   </div>
 </div>

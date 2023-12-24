@@ -1,0 +1,45 @@
+@import "../../../../../styles/colors.scss";
+
+.meal-widget {
+  display: flex;
+  background-color: white;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 5px 5px 5px $shadow-gray;
+}
+
+.meal-image {
+  border-radius: inherit;
+}
+
+.meal-image img {
+  width: auto;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.meal-details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+}
+
+.meal-header {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.meal-title {
+  margin: 0;
+  padding: 0;
+}
+
+.chef-name {
+  display: flex;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
