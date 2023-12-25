@@ -43,5 +43,8 @@
       "RESERVATION": "Réserver",
       "TIME": "Heure"
     }
+  },
+  "SHARED": {
+    "TIME": "Heure"
   }
 }

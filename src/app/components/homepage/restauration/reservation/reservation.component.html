@@ -1,11 +1,13 @@
 <div class="reservation-container">
   <div class="spacer"></div>
+  <div class="image-container">
+    <img src="assets/images/logo3.png" class="reservation-image" />
+  </div>
   <form
     class="reservation-form"
     [formGroup]="reservationForm"
     (ngSubmit)="submitForm()"
   >
-    <img src="assets/images/logo3.png" class="reservation-image" />
     <mat-form-field appearance="fill">
       <mat-label>{{ "RESTAURATION.RESERVATION.DATE" | translate }}</mat-label>
       <input
@@ -24,10 +26,14 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>{{ "RESTAURATION.RESERVATION.TIME" | translate }}</mat-label>
-      <input matInput type="time" formControlName="time" placeholder="hh:mm" />
-    </mat-form-field>
+    <app-time-dropdown
+      class="time-dropdown"
+      [min]="InputTimeMinMax.MIN"
+      [max]="InputTimeMinMax.MAX"
+      [minutesGap]="minutesGap"
+      [required]="required"
+      formControlName="time"
+    ></app-time-dropdown>
 
     <mat-form-field appearance="fill">
       <mat-label>{{
@@ -40,6 +46,17 @@
         [min]="InputPersonMinMax.MIN"
         [max]="InputPersonMinMax.MAX"
       />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="message">{{ "CONTACT.MESSAGE" | translate }}</mat-label>
+      <textarea
+        matInput
+        class="message-textarea"
+        formControlName="message"
+        [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
+        [maxlength]="messageMaxLength"
+      ></textarea>
     </mat-form-field>
 
     <button class="button-body-format submit-button" type="submit">

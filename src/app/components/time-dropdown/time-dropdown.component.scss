@@ -1,0 +1,13 @@
+@import '../../../styles/colors.scss';
+
+.dropdown-container {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-mdc-select-arrow {
+  display: none;
+}
+
+.icon-style {
+  color: $icon-gray;
+}
