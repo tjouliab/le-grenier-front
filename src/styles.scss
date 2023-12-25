@@ -91,7 +91,14 @@ body {
 }
 
 .subtitle-widget-format {
-  font-size: 14px;
+  font-size: 12px;
   color: gray;
   font-family: "Montserrat-Italic", sans-serif;
+}
+
+.text-widget-format {
+  font-size: 14px;
+  color: $black;
+  font-family: "Montserrat-Regular", sans-serif;
+  line-height: 120%;
 }

@@ -32,6 +32,11 @@
     }
   },
   "RESTAURATION": {
+    "PAGE": {
+      "DESSERTS": "Desserts",
+      "ENTRIES": "Entrées",
+      "MAIN": "Plats"
+    },
     "RESERVATION": {
       "DATE": "Date",
       "PERSON_NUMBER": "Nombre de personnes",

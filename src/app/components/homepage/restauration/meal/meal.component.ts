@@ -4,9 +4,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   MealTypes,
   MealPrices,
-  Allergy,
   MealDisplayDto,
 } from '../../../../dto/mealDisplay.dto';
+import { Allergy } from '../../../../dto/allergy.dto';
 
 @Component({
   selector: 'app-meal',

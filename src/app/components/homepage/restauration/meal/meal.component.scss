@@ -6,7 +6,7 @@
   border-radius: 5px 0 0 5px;
   box-shadow: 5px 5px 5px $shadow-gray;
   height: 30vh;
-  width: 30vw;
+  width: 35vw;
 }
 
 .meal-image {
@@ -23,9 +23,9 @@
 .meal-details {
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 10px;
   align-items: center;
-  flex-grow: 1;
+  width: 100%;
 }
 
 .meal-header {
@@ -36,12 +36,10 @@
 }
 
 .meal-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin: 0;
   padding: 0;
   width: 100%;
+  text-align: left;
 }
 
 .price {
@@ -65,13 +63,34 @@
 }
 
 .meal-description {
+  display: flex;
+  align-items: center;
   overflow: overlay;
   text-overflow: ellipsis;
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.allergens {
-  margin: 0;
-  padding: 0;
+.allergens-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 5%;
+}
+
+.allergen-image {
+  height: 32px;
+  width: 32px;
+}
+
+.allergen-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

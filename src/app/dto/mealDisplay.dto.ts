@@ -1,3 +1,5 @@
+import { Allergy } from "./allergy.dto";
+
 export class MealDisplayDto {
   imagePath: string;
   chefName: string;
@@ -18,9 +20,4 @@ export enum MealTypes {
   Entry = 1,
   Main = 2,
   Dessert = 3,
-}
-
-export class Allergy {
-  name: string;
-  logoPath: string;
 }

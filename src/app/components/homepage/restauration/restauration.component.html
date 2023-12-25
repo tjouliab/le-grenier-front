@@ -5,7 +5,9 @@
     <div>
       <div class="spacer"></div>
       <!-- Liste des différentes entrées -->
-      <p class="title-body-format categories-title">Entrées</p>
+      <p class="title-body-format categories-title">
+        {{ "RESTAURATION.PAGE.ENTRIES" | translate }}
+      </p>
       <div class="meal-list">
         @for(meal of entriesList; track meal) {
         <app-meal [meal]="meal"></app-meal>
@@ -14,7 +16,9 @@
 
       <div class="spacer"></div>
       <!-- Liste des différents plats -->
-      <p class="title-body-format categories-title">Plats</p>
+      <p class="title-body-format categories-title">
+        {{ "RESTAURATION.PAGE.MAIN" | translate }}
+      </p>
       <div class="meal-list">
         @for(meal of mainList; track meal) {
         <app-meal [meal]="meal"></app-meal>
@@ -23,7 +27,9 @@
 
       <div class="spacer"></div>
       <!-- Liste des différents desserts -->
-      <p class="title-body-format categories-title">Desserts</p>
+      <p class="title-body-format categories-title">
+        {{ "RESTAURATION.PAGE.DESSERTS" | translate }}
+      </p>
       <div class="meal-list">
         @for(meal of dessertList; track meal) {
         <app-meal [meal]="meal"></app-meal>

@@ -3,16 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ReservationComponent } from './reservation/reservation.component';
 import { MealComponent } from './meal/meal.component';
 import {
-  Allergy,
   MealDisplayDto,
   MealPrices,
   MealTypes,
 } from '../../../dto/mealDisplay.dto';
+import { GlutenFreeAllergy, VeganAllergy } from '../../../dto/allergy.dto';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-restauration',
   standalone: true,
-  imports: [CommonModule, ReservationComponent, MealComponent],
+  imports: [CommonModule, ReservationComponent, MealComponent, TranslateModule],
   templateUrl: './restauration.component.html',
   styleUrl: './restauration.component.scss',
 })
@@ -25,7 +26,7 @@ export class RestaurationComponent {
       type: MealTypes.Main,
       price: MealPrices.Cheap,
       description:
-        "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
+        "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
       allergies: [],
     },
     {
@@ -35,8 +36,8 @@ export class RestaurationComponent {
       type: MealTypes.Main,
       price: MealPrices.Expensive,
       description:
-        "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
-      allergies: [],
+      "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
+      allergies: [VeganAllergy, GlutenFreeAllergy],
     },
     {
       imagePath: 'assets/images/meals/meal-placeholder.png',
@@ -46,13 +47,43 @@ export class RestaurationComponent {
       price: MealPrices.Normal,
       description:
         "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
-      allergies: [],
+      allergies: [VeganAllergy],
     },
     {
       imagePath: 'assets/images/meals/meal-placeholder.png',
       chefName: 'Mattéo',
       mealTitle: 'Pâtes au pesto',
       type: MealTypes.Entry,
+      price: MealPrices.Cheap,
+      description:
+        "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
+      allergies: [],
+    },
+    {
+      imagePath: 'assets/images/meals/meal-placeholder.png',
+      chefName: 'Mattéo',
+      mealTitle: 'Pâtes au pesto',
+      type: MealTypes.Dessert,
+      price: MealPrices.Cheap,
+      description:
+        "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
+      allergies: [],
+    },
+    {
+      imagePath: 'assets/images/meals/meal-placeholder.png',
+      chefName: 'Mattéo',
+      mealTitle: 'Pâtes au pesto',
+      type: MealTypes.Dessert,
+      price: MealPrices.Cheap,
+      description:
+        "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
+      allergies: [],
+    },
+    {
+      imagePath: 'assets/images/meals/meal-placeholder.png',
+      chefName: 'Mattéo',
+      mealTitle: 'Pâtes au pesto',
+      type: MealTypes.Dessert,
       price: MealPrices.Cheap,
       description:
         "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",

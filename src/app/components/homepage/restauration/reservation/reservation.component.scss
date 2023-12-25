@@ -26,6 +26,12 @@
   box-shadow: 5px 5px 5px $shadow-gray;
 }
 
+.reservation-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .reservation-form mat-form-field {
   display: block;
   width: 100%;
