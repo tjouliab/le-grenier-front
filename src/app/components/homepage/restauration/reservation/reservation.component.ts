@@ -79,7 +79,7 @@ export class ReservationComponent {
 
   reservationForm = new FormGroup({
     date: new FormControl(moment.utc(), [Validators.required]),
-    time: new FormControl('', [Validators.required]),
+    time: new FormControl(moment.utc(), [Validators.required]),
     personNumber: new FormControl(this.InputPersonMinMax.MIN, [
       Validators.required,
       Validators.min(this.InputPersonMinMax.MIN),
@@ -107,8 +107,15 @@ export class ReservationComponent {
   }
 
   submitForm(): void {
+    console.log('reservation', this.reservationForm.value);
     if (!this.reservationForm.valid) {
       return;
+    }
+  }
+
+  updateFormTime($event: Moment) {
+    if ($event) {
+      this.reservationForm.patchValue({ time: $event });
     }
   }
 }

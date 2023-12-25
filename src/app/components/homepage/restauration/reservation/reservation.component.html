@@ -32,7 +32,7 @@
       [max]="InputTimeMinMax.MAX"
       [minutesGap]="minutesGap"
       [required]="required"
-      formControlName="time"
+      (newTimeSelectionEvent)="updateFormTime($event)"
     ></app-time-dropdown>
 
     <mat-form-field appearance="fill">

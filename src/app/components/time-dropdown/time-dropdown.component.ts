@@ -1,19 +1,8 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Optional,
-  Output,
-  Self,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  ControlContainer,
-  ControlValueAccessor,
   FormControl,
-  FormGroupDirective,
   FormsModule,
-  NgControl,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -23,12 +12,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Moment } from 'moment';
 import moment from 'moment';
 import { MatIconModule } from '@angular/material/icon';
-
-const NOOP_VALUE_ACCESSOR: ControlValueAccessor = {
-  writeValue(): void {},
-  registerOnChange(): void {},
-  registerOnTouched(): void {},
-};
 
 @Component({
   selector: 'app-time-dropdown',
@@ -41,12 +24,6 @@ const NOOP_VALUE_ACCESSOR: ControlValueAccessor = {
     ReactiveFormsModule,
     TranslateModule,
     MatIconModule,
-  ],
-  viewProviders: [
-    {
-      provide: ControlContainer,
-      useExisting: FormGroupDirective,
-    },
   ],
   templateUrl: './time-dropdown.component.html',
   styleUrl: './time-dropdown.component.scss',
@@ -74,11 +51,7 @@ export class TimeDropdownComponent {
   timeSelectionForm: FormControl;
   timeFormat: string = 'HH:mm';
 
-  constructor(@Self() @Optional() public ngControl: NgControl) {
-    if (this.ngControl) {
-      this.ngControl.valueAccessor = NOOP_VALUE_ACCESSOR;
-    }
-  }
+  constructor() {}
 
   ngOnInit(): void {
     // Initialize time selection
