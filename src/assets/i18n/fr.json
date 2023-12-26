@@ -39,6 +39,7 @@
     },
     "RESERVATION": {
       "DATE": "Date",
+      "PERSON_INTERVAL": "De {{min}} à {{max}} personnes",
       "PERSON_NUMBER": "Nombre de personnes",
       "RESERVATION": "Réserver",
       "TIME": "Heure"

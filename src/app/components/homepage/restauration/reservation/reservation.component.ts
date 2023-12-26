@@ -18,9 +18,13 @@ import {
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
 import moment, { Moment } from 'moment';
+import momentTz from 'moment-timezone';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-import { DateTime } from 'luxon';
 import { TimeDropdownComponent } from '../../../time-dropdown/time-dropdown.component';
+import { delay, of } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ErrorSnackbarComponent } from '../../../snackbars/error-snackbar/error-snackbar.component';
 
 const MY_FORMATS = {
   parse: {
@@ -50,6 +54,7 @@ const MY_FORMATS = {
     MatMomentDateModule,
     NgxMaterialTimepickerModule,
     TimeDropdownComponent,
+    MatProgressSpinnerModule,
   ],
   providers: [
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
@@ -64,8 +69,14 @@ export class ReservationComponent {
   datePlaceholder: string = MY_FORMATS.parse.dateInput;
 
   InputTimeMinMax = {
-    MIN: moment.utc(),
-    MAX: moment.utc(),
+    MIN: moment.utc().set({
+      hour: 18,
+      minute: 0,
+    }),
+    MAX: moment.utc().set({
+      hour: 22,
+      minute: 30,
+    }),
   };
   minutesGap: number = 15;
   required = true;
@@ -74,13 +85,14 @@ export class ReservationComponent {
     MIN: 1,
     MAX: 8,
   };
+  personNumberPlaceholder: string;
 
   messageMaxLength: number = 150;
 
   reservationForm = new FormGroup({
-    date: new FormControl(moment.utc(), [Validators.required]),
+    date: new FormControl(momentTz.tz('Europe/Paris'), [Validators.required]),
     time: new FormControl(moment.utc(), [Validators.required]),
-    personNumber: new FormControl(this.InputPersonMinMax.MIN, [
+    personNumber: new FormControl('', [
       Validators.required,
       Validators.min(this.InputPersonMinMax.MIN),
       Validators.max(this.InputPersonMinMax.MAX),
@@ -88,34 +100,56 @@ export class ReservationComponent {
     message: new FormControl('', [Validators.maxLength(this.messageMaxLength)]),
   });
 
-  constructor(private translate: TranslateService) {}
+  loadingSubmit: boolean = false;
+
+  constructor(
+    private translate: TranslateService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
+    this.openSnackBar('Désolé, nous sommes complets à cette date', 'OK');
     // Setup date input
     const currentMonth: number = new Date().getMonth();
     this.maxDate.setMonth(currentMonth + 1);
 
-    // Setup time input
-    this.InputTimeMinMax.MIN = this.InputTimeMinMax.MIN.set({
-      hour: 18,
-      minute: 0,
-    });
-    this.InputTimeMinMax.MAX = this.InputTimeMinMax.MAX.set({
-      hour: 22,
-      minute: 30,
-    });
+    // Setup person number input
+    this.personNumberPlaceholder = this.translate.instant(
+      'RESTAURATION.RESERVATION.PERSON_INTERVAL',
+      {
+        min: this.InputPersonMinMax.MIN,
+        max: this.InputPersonMinMax.MAX,
+      }
+    );
   }
 
   submitForm(): void {
-    console.log('reservation', this.reservationForm.value);
     if (!this.reservationForm.valid) {
       return;
     }
+    this.loadingSubmit = true;
+    of('reponse')
+      .pipe(delay(2000))
+      .subscribe((data) => {
+        this.loadingSubmit = false;
+        this.openSnackBar('Nous sommes complets à cette date', 'OK');
+      });
   }
 
   updateFormTime($event: Moment) {
     if ($event) {
       this.reservationForm.patchValue({ time: $event });
     }
+  }
+
+  openSnackBar(message: string, action: string): void {
+    this._snackBar.openFromComponent(ErrorSnackbarComponent, {
+      duration: 500000000,
+      data: {
+        message,
+        action,
+      },
+      panelClass: 'error-snackbar',
+    });
   }
 }

@@ -8,15 +8,21 @@
     [formGroup]="reservationForm"
     (ngSubmit)="submitForm()"
   >
-    <mat-form-field appearance="fill">
+    <mat-form-field
+      class="date-form-field"
+      appearance="fill"
+      (click)="picker.open()"
+    >
       <mat-label>{{ "RESTAURATION.RESERVATION.DATE" | translate }}</mat-label>
       <input
         matInput
+        class="date-input"
         formControlName="date"
         [matDatepicker]="picker"
         [min]="minDate"
         [max]="maxDate"
         [placeholder]="datePlaceholder"
+        readonly
       />
       <mat-datepicker-toggle matSuffix [for]="picker"
         ><mat-icon matDatepickerToggleIcon
@@ -45,6 +51,7 @@
         formControlName="personNumber"
         [min]="InputPersonMinMax.MIN"
         [max]="InputPersonMinMax.MAX"
+        [placeholder]="personNumberPlaceholder"
       />
     </mat-form-field>
 
@@ -59,8 +66,15 @@
       ></textarea>
     </mat-form-field>
 
-    <button class="button-body-format submit-button" type="submit">
+    <button
+      class="button-body-format submit-button"
+      type="submit"
+      [disabled]="loadingSubmit"
+    >
       {{ "RESTAURATION.RESERVATION.RESERVATION" | translate }}
+      @if(loadingSubmit) {
+      <mat-spinner diameter="30"></mat-spinner>
+      }
     </button>
   </form>
   <div class="spacer"></div>
