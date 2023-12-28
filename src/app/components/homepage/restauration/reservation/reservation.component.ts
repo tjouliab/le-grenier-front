@@ -108,7 +108,6 @@ export class ReservationComponent {
   ) {}
 
   ngOnInit(): void {
-    this.openSnackBar('Désolé, nous sommes complets à cette date', 'OK');
     // Setup date input
     const currentMonth: number = new Date().getMonth();
     this.maxDate.setMonth(currentMonth + 1);
@@ -144,7 +143,7 @@ export class ReservationComponent {
 
   openSnackBar(message: string, action: string): void {
     this._snackBar.openFromComponent(ErrorSnackbarComponent, {
-      duration: 500000000,
+      duration: 5000,
       data: {
         message,
         action,

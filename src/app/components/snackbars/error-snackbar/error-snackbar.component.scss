@@ -3,4 +3,23 @@
 :host {
   display: flex;
   flex-direction: row;
+  border-radius: var(--mdc-snackbar-container-shape);
+  width: 100%;
+  height: 100%;
+}
+
+.snackbar-message {
+  color: white;
+}
+
+.snackbar-button .mdc-button__label {
+  color: white !important;
+}
+
+.snackbar-button {
+  // background-color: rgba(0, 0, 0, 0.12);
+}
+
+.snackbar-button:hover {
+  background-color: $hover-gray;
 }

@@ -33,7 +33,7 @@
 }
 
 .routing-item:hover {
-  background-color: rgba(0, 0, 0, 0.25) !important;
+  background-color: $hover-gray !important;
 }
 
 :host ::ng-deep .mat-mdc-list-item:not(.mat-mdc-list-item-interactive),
