@@ -32,6 +32,14 @@
     }
   },
   "RESTAURATION": {
+    "ALLERGIES": {
+      "CRUSTACEANS": "Crustacés",
+      "EGGS": "Oeufs",
+      "FISH": "Poisson",
+      "GLUTEN": "Gluten",
+      "MILK": "Lait",
+      "PEANUT": "Arachides"
+    },
     "PAGE": {
       "DESSERTS": "Desserts",
       "ENTRIES": "Entrées",

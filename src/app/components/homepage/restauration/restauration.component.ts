@@ -7,7 +7,7 @@ import {
   MealPrices,
   MealTypes,
 } from '../../../dto/mealDisplay.dto';
-import { GlutenFreeAllergy, VeganAllergy } from '../../../dto/allergy.dto';
+import { GlutenAllergy, MilkAllergy } from '../../../dto/allergy.dto';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -37,7 +37,7 @@ export class RestaurationComponent {
       price: MealPrices.Expensive,
       description:
       "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
-      allergies: [VeganAllergy, GlutenFreeAllergy],
+      allergies: [MilkAllergy, GlutenAllergy],
     },
     {
       imagePath: 'assets/images/meals/meal-placeholder.png',
@@ -47,7 +47,7 @@ export class RestaurationComponent {
       price: MealPrices.Normal,
       description:
         "Délicieuses pâtes accompagnées d'un fromage dégoulinant miam miam",
-      allergies: [VeganAllergy],
+      allergies: [MilkAllergy],
     },
     {
       imagePath: 'assets/images/meals/meal-placeholder.png',
