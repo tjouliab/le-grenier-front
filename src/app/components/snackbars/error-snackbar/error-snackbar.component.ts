@@ -22,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './error-snackbar.component.html',
   styleUrl: './error-snackbar.component.scss',
 })
-export class ErrorSnackbarComponent {
+export class CustomSnackbarComponent {
   snackBarRef = inject(MatSnackBarRef);
 
   constructor(

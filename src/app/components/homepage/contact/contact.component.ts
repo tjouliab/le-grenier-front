@@ -13,6 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 import { SmtpService } from '../../../services/smtp.service';
 import { ContactFormMailDto } from '../../../dto/contactFormMailBody.dto';
 import { ADDRESS, CONTACT_EMAIL, CONTACT_PHONE } from '../../../../environment';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CustomSnackbarComponent } from '../../snackbars/error-snackbar/error-snackbar.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -24,6 +28,7 @@ import { ADDRESS, CONTACT_EMAIL, CONTACT_PHONE } from '../../../../environment';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
@@ -60,9 +65,12 @@ export class ContactComponent {
     ]),
   });
 
+  loadingSubmit = false;
+
   constructor(
     private translate: TranslateService,
-    private smtpService: SmtpService
+    private smtpService: SmtpService,
+    private _snackBar: MatSnackBar
   ) {
     this.address = ADDRESS;
     this.contactMail = CONTACT_EMAIL;
@@ -73,17 +81,65 @@ export class ContactComponent {
     if (!this.contactForm.valid) {
       return;
     }
-
+    this.loadingSubmit = true;
+    
     const contactFormDto: ContactFormMailDto = {
       userName: this.contactForm.value.name ?? '',
       userMail: this.contactForm.value.email ?? '',
       subject: this.contactForm.value.subject ?? '',
       message: this.contactForm.value.message ?? '',
     };
-    this.smtpService.sendMail(contactFormDto).subscribe({
-      next: (response) => console.log(response),
-      error: (error) => console.error(error),
-      complete: () => console.info('complete'),
+    this.smtpService
+      .sendMail(contactFormDto)
+      .pipe(
+        finalize(() => {
+          this.loadingSubmit = false;
+        })
+      )
+      .subscribe({
+        next: (response) => {
+          this.clearContactForm();
+          this.openSuccessSnackBar(
+            this.translate.instant('SNACKBARS.MESSAGE_SENT'),
+            this.translate.instant('SHARED.OK')
+          );
+        },
+        error: (error) =>
+          this.openErrorSnackBar(
+            this.translate.instant('SNACKBARS.SERVER_ERROR'),
+            this.translate.instant('SHARED.OK')
+          ),
+      });
+  }
+
+  openSuccessSnackBar(message: string, action: string): void {
+    this._snackBar.openFromComponent(CustomSnackbarComponent, {
+      duration: 5000,
+      data: {
+        message,
+        action,
+      },
+      panelClass: 'success-snackbar',
+    });
+  }
+
+  openErrorSnackBar(message: string, action: string): void {
+    this._snackBar.openFromComponent(CustomSnackbarComponent, {
+      duration: 5000,
+      data: {
+        message,
+        action,
+      },
+      panelClass: 'error-snackbar',
+    });
+  }
+
+  clearContactForm(): void {
+    this.contactForm.setValue({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
     });
   }
 }

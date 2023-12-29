@@ -112,3 +112,12 @@ body {
   white-space: pre-wrap;
   border-radius: var(--mdc-snackbar-container-shape);
 }
+
+.success-snackbar {
+  --mdc-snackbar-container-color: #465f45 !important;
+  --mdc-snackbar-supporting-text-color: white !important;
+  --mat-mdc-snack-bar-button-color: white !important;
+  --mat-snack-bar-button-color: black !important;
+  white-space: pre-wrap;
+  border-radius: var(--mdc-snackbar-container-shape);
+}

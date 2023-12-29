@@ -64,6 +64,8 @@
 }
 
 .contact-form form {
+  display: flex;
+  flex-direction: column;
   width: 40%;
   margin: auto;
 }
@@ -101,15 +103,28 @@
 }
 
 .submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
   width: 50%;
   height: 40px;
-  background-color: $blue;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
 }
+.submit-button:not([disabled]) {
+  background-color: $blue;
+}
+.submit-button[disabled] {
+  background-color: gray;
+}
 
-.submit-button:hover {
+.submit-button:not([disabled]):hover {
   background-color: $hover-blue;
+}
+
+:host ::ng-deep .mdc-circular-progress {
+  position: absolute;
 }

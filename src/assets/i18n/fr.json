@@ -54,6 +54,12 @@
     }
   },
   "SHARED": {
+    "OK": "OK",
     "TIME": "Heure"
+  },
+  "SNACKBARS": {
+    "MESSAGE_SENT": "Votre message a bien été envoyé",
+    "RESERVATION_FULL": "Nous sommes complets à cette date",
+    "SERVER_ERROR": "Une erreur serveur s'est produite"
   }
 }

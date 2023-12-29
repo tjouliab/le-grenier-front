@@ -81,8 +81,15 @@
           [maxlength]="FormMaxLength.MESSAGE"
         ></textarea>
       </mat-form-field>
-      <button class="button-body-format submit-button" type="submit">
+      <button
+        class="button-body-format submit-button"
+        type="submit"
+        [disabled]="loadingSubmit"
+      >
         {{ "CONTACT.ENVOYER" | translate }}
+        @if(loadingSubmit) {
+        <mat-spinner diameter="30"></mat-spinner>
+        }
       </button>
     </form>
   </div>

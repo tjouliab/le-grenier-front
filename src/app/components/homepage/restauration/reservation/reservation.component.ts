@@ -24,7 +24,7 @@ import { TimeDropdownComponent } from '../../../time-dropdown/time-dropdown.comp
 import { delay, of } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ErrorSnackbarComponent } from '../../../snackbars/error-snackbar/error-snackbar.component';
+import { CustomSnackbarComponent } from '../../../snackbars/error-snackbar/error-snackbar.component';
 
 const MY_FORMATS = {
   parse: {
@@ -131,7 +131,10 @@ export class ReservationComponent {
       .pipe(delay(2000))
       .subscribe((data) => {
         this.loadingSubmit = false;
-        this.openSnackBar('Nous sommes complets à cette date', 'OK');
+        this.openSnackBar(
+          this.translate.instant('SNACKBARS.RESERVATION_FULL'),
+          this.translate.instant('SHARED.OK')
+        );
       });
   }
 
@@ -142,7 +145,7 @@ export class ReservationComponent {
   }
 
   openSnackBar(message: string, action: string): void {
-    this._snackBar.openFromComponent(ErrorSnackbarComponent, {
+    this._snackBar.openFromComponent(CustomSnackbarComponent, {
       duration: 5000,
       data: {
         message,
