@@ -24,6 +24,10 @@
   display: none;
 }
 
+:host ::ng-deep .mdc-checkbox__ripple {
+  display: none;
+}
+
 .reservation-container {
   height: 100vh; /* 100% de la hauteur de la fenêtre de visualisation */
   align-items: center;
@@ -53,13 +57,6 @@
   margin-bottom: 5vh;
 }
 
-.reservation-image {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: scale-down;
-}
-
 .reservation-form mat-form-field {
   display: block;
   width: 100%;
@@ -70,12 +67,35 @@
   cursor: pointer;
 }
 
-.time-dropdown {
+.reservation-image {
   width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: scale-down;
+}
+
+.checbox-row {
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.checkbox-container {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.checkbox-container:hover {
+  background-color: $hover-gray;
 }
 
 .message-textarea {
-  height: 21vh;
+  height: 15vh;
   resize: none;
 }
 

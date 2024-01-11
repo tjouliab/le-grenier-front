@@ -1,0 +1,32 @@
+@import "../../../../styles/colors.scss";
+
+.chambres-section {
+  align-items: center;
+  text-align: center;
+  background-color: $white;
+}
+
+.full-width-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chambres-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  width: 90%;
+  gap: 20px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.spacer {
+  height: 10vh;
+}
+
+.reservation-container {
+  position: sticky;
+  top: 0px;
+  height: fit-content;
+}

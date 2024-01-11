@@ -1,0 +1,105 @@
+<div class="reservation-container">
+  <div class="spacer"></div>
+  <div class="image-container">
+    <img src="assets/images/icon_restauration.svg" class="reservation-image" />
+  </div>
+  <form
+    class="reservation-form"
+    [formGroup]="reservationForm"
+    (ngSubmit)="submitForm()"
+  >
+    <mat-form-field
+      class="date-form-field"
+      appearance="fill"
+      (click)="startPicker.open()"
+    >
+      <mat-label>Date d'arrivée</mat-label>
+      <input
+        matInput
+        class="date-input"
+        formControlName="startDate"
+        [matDatepicker]="startPicker"
+        [min]="minStartDate"
+        [max]="maxStartDate"
+        [placeholder]="datePlaceholder"
+        readonly
+      />
+      <mat-datepicker-toggle matSuffix [for]="startPicker"
+        ><mat-icon matDatepickerToggleIcon
+          >keyboard_arrow_down</mat-icon
+        ></mat-datepicker-toggle
+      >
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field
+      class="date-form-field"
+      appearance="fill"
+      (click)="endPicker.open()"
+    >
+      <mat-label>Date de départ</mat-label>
+      <input
+        matInput
+        class="date-input"
+        formControlName="endDate"
+        [matDatepicker]="endPicker"
+        [min]="minEndDate"
+        [max]="maxEndDate"
+        [placeholder]="datePlaceholder"
+        readonly
+      />
+      <mat-datepicker-toggle matSuffix [for]="endPicker"
+        ><mat-icon matDatepickerToggleIcon
+          >keyboard_arrow_down</mat-icon
+        ></mat-datepicker-toggle
+      >
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="message">{{ "CONTACT.MESSAGE" | translate }}</mat-label>
+      <textarea
+        matInput
+        class="message-textarea"
+        formControlName="message"
+        [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
+        [maxlength]="messageMaxLength"
+      ></textarea>
+    </mat-form-field>
+
+    <div class="checbox-row">
+      <div class="checkbox-container" (click)="childrenCheckbox.toggle()">
+        <mat-checkbox
+          #childrenCheckbox
+          type="checkbox"
+          formControlName="hasChildren"
+          disableRipple="true"
+          (click)="$event.stopPropagation()"
+        />
+        <mat-label>Enfants</mat-label>
+      </div>
+      <div class="checkbox-container" (click)="petsCheckbox.toggle()">
+        <mat-checkbox
+          #petsCheckbox
+          type="checkbox"
+          formControlName="hasPets"
+          disableRipple="true"
+          (click)="$event.stopPropagation()"
+        />
+        <mat-label>Animaux</mat-label>
+      </div>
+    </div>
+
+    <button
+      class="button-body-format submit-button"
+      type="submit"
+      [disabled]="loadingSubmit"
+    >
+      {{ "RESTAURATION.RESERVATION.RESERVATION" | translate }}
+      @if(loadingSubmit) {
+      <mat-spinner diameter="30"></mat-spinner>
+      }
+    </button>
+  </form>
+  <div class="spacer"></div>
+</div>
