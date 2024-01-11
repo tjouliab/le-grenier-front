@@ -71,9 +71,10 @@
       type="submit"
       [disabled]="loadingSubmit"
     >
-      {{ "RESTAURATION.RESERVATION.RESERVATION" | translate }}
       @if(loadingSubmit) {
       <mat-spinner diameter="30"></mat-spinner>
+      } @else {
+      {{ "RESTAURATION.RESERVATION.RESERVATION" | translate }}
       }
     </button>
   </form>
