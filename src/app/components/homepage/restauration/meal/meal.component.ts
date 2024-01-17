@@ -7,11 +7,12 @@ import {
   MealDto,
 } from '../../../../dto/mealDisplay.dto';
 import { Allergy } from '../../../../dto/allergy.dto';
+import { TooltipDirective } from '../../../../directives/tooltip.directive';
 
 @Component({
   selector: 'app-meal',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, TooltipDirective],
   templateUrl: './meal.component.html',
   styleUrl: './meal.component.scss',
 })

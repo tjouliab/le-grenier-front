@@ -8,7 +8,9 @@
         <p class="title-widget-format meal-title">{{ mealTitle }}</p>
         <p class="title-widget-format price">{{ price }}</p>
       </div>
-      <p class="subtitle-widget-format chef-name">{{ chefName }}</p>
+      <p class="subtitle-widget-format chef-name" [appTooltip]="chefName">
+        {{ chefName }}
+      </p>
     </div>
     <p class="text-widget-format meal-description">{{ description }}</p>
     @if(allergies.length > 0) {
