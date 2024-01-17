@@ -24,7 +24,7 @@ import { TimeDropdownComponent } from '../../../time-dropdown/time-dropdown.comp
 import { delay, of } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CustomSnackbarComponent } from '../../../snackbars/error-snackbar/error-snackbar.component';
+import { CustomSnackbarComponent } from '../../../snackbars/custom-snackbar/custom-snackbar.component';
 
 const MY_FORMATS = {
   parse: {

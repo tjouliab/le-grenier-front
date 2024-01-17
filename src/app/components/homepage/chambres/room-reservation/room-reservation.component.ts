@@ -13,10 +13,9 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import moment from 'moment';
 import momentTz from 'moment-timezone';
 import { of, delay } from 'rxjs';
-import { CustomSnackbarComponent } from '../../../snackbars/error-snackbar/error-snackbar.component';
+import { CustomSnackbarComponent } from '../../../snackbars/custom-snackbar/custom-snackbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';

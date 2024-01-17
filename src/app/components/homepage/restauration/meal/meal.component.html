@@ -1,6 +1,6 @@
 <div class="meal-widget">
   <div class="meal-image">
-    <img [src]="imagePath" />
+    <img [src]="imageUrl" />
   </div>
   <div class="meal-details">
     <div class="meal-header">
@@ -15,10 +15,7 @@
     <div class="allergens-row">
       @for(allergy of allergies; track allergy) {
       <div class="allergen-image">
-        <img
-          [src]="allergy.logoPath"
-          [title]="allergy.tooltip | translate"
-        />
+        <img [src]="allergy.logoPath" [title]="allergy.tooltip | translate" />
       </div>
       }
     </div>

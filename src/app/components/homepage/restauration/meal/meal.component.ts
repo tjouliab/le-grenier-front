@@ -4,7 +4,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   MealTypes,
   MealPrices,
-  MealDisplayDto,
+  MealDto,
 } from '../../../../dto/mealDisplay.dto';
 import { Allergy } from '../../../../dto/allergy.dto';
 
@@ -17,9 +17,9 @@ import { Allergy } from '../../../../dto/allergy.dto';
 })
 export class MealComponent {
   @Input()
-  meal: MealDisplayDto;
+  meal: MealDto;
 
-  imagePath: string;
+  imageUrl: string;
   chefName: string;
   mealTitle: string;
   type: MealTypes;
@@ -33,12 +33,12 @@ export class MealComponent {
     if (!this.meal) {
       return;
     }
-    this.imagePath = this.meal.imagePath;
+    this.imageUrl = this.meal.imageUrl;
     this.chefName = this.meal.chefName;
     this.mealTitle = this.meal.mealTitle;
     this.type = this.meal.type;
     this.price = this.meal.price;
     this.description = this.meal.description;
-    this.allergies = this.meal.allergies || [];
+    this.allergies = this.meal.allergies;
   }
 }

@@ -14,7 +14,7 @@ import { SmtpService } from '../../../services/smtp.service';
 import { ContactFormMailDto } from '../../../dto/contactFormMailBody.dto';
 import { ADDRESS, CONTACT_EMAIL, CONTACT_PHONE } from '../../../../environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CustomSnackbarComponent } from '../../snackbars/error-snackbar/error-snackbar.component';
+import { CustomSnackbarComponent } from '../../snackbars/custom-snackbar/custom-snackbar.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { finalize } from 'rxjs';
 
@@ -82,7 +82,7 @@ export class ContactComponent {
       return;
     }
     this.loadingSubmit = true;
-    
+
     const contactFormDto: ContactFormMailDto = {
       userName: this.contactForm.value.name ?? '',
       userMail: this.contactForm.value.email ?? '',

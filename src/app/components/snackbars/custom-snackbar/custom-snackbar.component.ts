@@ -19,8 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSnackBarActions,
     MatSnackBarAction,
   ],
-  templateUrl: './error-snackbar.component.html',
-  styleUrl: './error-snackbar.component.scss',
+  templateUrl: './custom-snackbar.component.html',
+  styleUrl: './custom-snackbar.component.scss',
 })
 export class CustomSnackbarComponent {
   snackBarRef = inject(MatSnackBarRef);
