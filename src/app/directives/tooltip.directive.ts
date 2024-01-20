@@ -11,6 +11,7 @@ import {
 import {
   ChefTooltipComponent,
   TOOLTIP_DATA,
+  TooltipData,
 } from '../components/tooltips/chef-tooltip/chef-tooltip.component';
 import { Overlay, OverlayRef, PositionStrategy } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
@@ -20,7 +21,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
   standalone: true,
 })
 export class TooltipDirective implements OnInit, OnDestroy {
-  @Input() appTooltip = '';
+  @Input() appTooltip: TooltipData;
 
   private overlayRef: OverlayRef = null;
 
@@ -38,6 +39,7 @@ export class TooltipDirective implements OnInit, OnDestroy {
   }
 
   @HostListener('mouseenter')
+  @HostListener('focus')
   showTooltip(): void {
     if (this.overlayRef?.hasAttached() === true) {
       return;
@@ -46,9 +48,17 @@ export class TooltipDirective implements OnInit, OnDestroy {
   }
 
   @HostListener('mouseleave')
+  @HostListener('blur')
   hideTooltip(): void {
     if (this.overlayRef?.hasAttached() === true) {
       this.overlayRef?.detach();
+    }
+  }
+
+  @HostListener('window:scroll')
+  onScroll(): void {
+    if (this.overlayRef && this.overlayRef.hasAttached()) {
+      this.overlayRef.updatePosition();
     }
   }
 
@@ -79,11 +89,18 @@ export class TooltipDirective implements OnInit, OnDestroy {
       .flexibleConnectedTo(this.element)
       .withPositions([
         {
-          originX: 'center',
+          originX: 'end',
           originY: 'bottom',
-          overlayX: 'center',
+          overlayX: 'start',
           overlayY: 'top',
-          panelClass: 'bottom',
+          panelClass: 'bottom-right',
+        },
+        {
+          originX: 'start',
+          originY: 'top',
+          overlayX: 'start',
+          overlayY: 'top',
+          panelClass: 'top-right',
         },
       ]);
   }

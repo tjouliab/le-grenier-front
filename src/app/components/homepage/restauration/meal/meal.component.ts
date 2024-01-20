@@ -8,6 +8,7 @@ import {
 } from '../../../../dto/mealDisplay.dto';
 import { Allergy } from '../../../../dto/allergy.dto';
 import { TooltipDirective } from '../../../../directives/tooltip.directive';
+import { TooltipData } from '../../../tooltips/chef-tooltip/chef-tooltip.component';
 
 @Component({
   selector: 'app-meal',
@@ -41,5 +42,12 @@ export class MealComponent {
     this.price = this.meal.price;
     this.description = this.meal.description;
     this.allergies = this.meal.allergies;
+  }
+
+  getTooltipData(): TooltipData {
+    return {
+      chefId: -1,
+      chefName: this.chefName,
+    };
   }
 }
