@@ -8,63 +8,65 @@
     [formGroup]="reservationForm"
     (ngSubmit)="submitForm()"
   >
-    <mat-form-field
-      class="date-form-field"
-      appearance="fill"
-      (click)="picker.open()"
-    >
-      <mat-label>{{ "RESTAURATION.RESERVATION.DATE" | translate }}</mat-label>
-      <input
-        matInput
-        class="date-input"
-        formControlName="date"
-        [matDatepicker]="picker"
-        [min]="minDate"
-        [max]="maxDate"
-        [placeholder]="datePlaceholder"
-        readonly
-      />
-      <mat-datepicker-toggle matSuffix [for]="picker"
-        ><mat-icon matDatepickerToggleIcon
-          >keyboard_arrow_down</mat-icon
-        ></mat-datepicker-toggle
+    <div class='all-form-fields'>
+      <mat-form-field
+        class="date-form-field"
+        appearance="fill"
+        (click)="picker.open()"
       >
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+        <mat-label>{{ "RESTAURATION.RESERVATION.DATE" | translate }}</mat-label>
+        <input
+          matInput
+          class="date-input"
+          formControlName="date"
+          [matDatepicker]="picker"
+          [min]="minDate"
+          [max]="maxDate"
+          [placeholder]="datePlaceholder"
+          readonly
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"
+          ><mat-icon matDatepickerToggleIcon
+            >keyboard_arrow_down</mat-icon
+          ></mat-datepicker-toggle
+        >
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-    <app-time-dropdown
-      class="time-dropdown"
-      [min]="InputTimeMinMax.MIN"
-      [max]="InputTimeMinMax.MAX"
-      [minutesGap]="minutesGap"
-      [required]="required"
-      (newTimeSelectionEvent)="updateFormTime($event)"
-    ></app-time-dropdown>
+      <app-time-dropdown
+        class="time-dropdown"
+        [min]="InputTimeMinMax.MIN"
+        [max]="InputTimeMinMax.MAX"
+        [minutesGap]="minutesGap"
+        [required]="required"
+        (newTimeSelectionEvent)="updateFormTime($event)"
+      ></app-time-dropdown>
 
-    <mat-form-field appearance="fill">
-      <mat-label>{{
-        "RESTAURATION.RESERVATION.PERSON_NUMBER" | translate
-      }}</mat-label>
-      <input
-        matInput
-        type="number"
-        formControlName="personNumber"
-        [min]="InputPersonMinMax.MIN"
-        [max]="InputPersonMinMax.MAX"
-        [placeholder]="personNumberPlaceholder"
-      />
-    </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{
+          "RESTAURATION.RESERVATION.PERSON_NUMBER" | translate
+        }}</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="personNumber"
+          [min]="InputPersonMinMax.MIN"
+          [max]="InputPersonMinMax.MAX"
+          [placeholder]="personNumberPlaceholder"
+        />
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label for="message">{{ "CONTACT.MESSAGE" | translate }}</mat-label>
-      <textarea
-        matInput
-        class="message-textarea"
-        formControlName="message"
-        [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
-        [maxlength]="messageMaxLength"
-      ></textarea>
-    </mat-form-field>
+      <mat-form-field class="form-field-message">
+        <mat-label for="message">{{ "CONTACT.MESSAGE" | translate }}</mat-label>
+        <textarea
+          matInput
+          class="message-textarea"
+          formControlName="message"
+          [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
+          [maxlength]="messageMaxLength"
+        ></textarea>
+      </mat-form-field>
+    </div>
 
     <button
       class="button-body-format submit-button"
