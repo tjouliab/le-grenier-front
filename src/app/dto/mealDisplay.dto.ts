@@ -1,4 +1,5 @@
 import { Allergy } from './allergy.dto';
+import { ChefData } from './chef.dto';
 
 export class MealDto {
   imagePath: string;
@@ -10,6 +11,7 @@ export class MealDto {
   allergiesName: AllergiesName[];
   allergies: Allergy[];
   imageUrl: string;
+  chefData: ChefData;
 }
 
 export enum MealPrices {
