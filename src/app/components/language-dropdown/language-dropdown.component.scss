@@ -17,6 +17,10 @@
   background-color: $white !important;
 }
 
+:host ::ng-deep .mdc-line-ripple {
+  display: none;
+}
+
 .option-content {
   display: flex;
   align-items: center;
