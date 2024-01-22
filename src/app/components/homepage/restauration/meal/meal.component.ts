@@ -7,6 +7,7 @@ import {
   MealDto,
 } from '../../../../dto/mealDisplay.dto';
 import { Allergy } from '../../../../dto/allergy.dto';
+import { ChefData } from '../../../../dto/chef.dto';
 import { TooltipDirective } from '../../../../directives/tooltip.directive';
 
 @Component({
@@ -27,6 +28,7 @@ export class MealComponent {
   price: MealPrices;
   description: string;
   allergies: Allergy[];
+  chefData: ChefData;
 
   constructor(private translate: TranslateService) {}
 
@@ -41,5 +43,6 @@ export class MealComponent {
     this.price = this.meal.price;
     this.description = this.meal.description;
     this.allergies = this.meal.allergies;
+    this.chefData = this.meal.chefData;
   }
 }
