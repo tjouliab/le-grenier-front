@@ -6,6 +6,9 @@
   justify-content: space-between;
   align-items: center;
   background-color: $pink;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
 }
 
 .homepage-toolbar-logo {
