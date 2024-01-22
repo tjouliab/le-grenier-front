@@ -9,11 +9,12 @@ import {
 import { Allergy } from '../../../../dto/allergy.dto';
 import { ChefData } from '../../../../dto/chef.dto';
 import { TooltipDirective } from '../../../../directives/tooltip.directive';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-meal',
   standalone: true,
-  imports: [CommonModule, TranslateModule, TooltipDirective],
+  imports: [CommonModule, TranslateModule, TooltipDirective, MatTooltipModule],
   templateUrl: './meal.component.html',
   styleUrl: './meal.component.scss',
 })
