@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   MealTypes,
   MealPrices,
@@ -30,8 +30,6 @@ export class MealComponent {
   description: string;
   allergies: Allergy[];
   chefData: ChefData;
-
-  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
     if (!this.meal) {

@@ -58,7 +58,7 @@ export class LanguageDropdownComponent {
       return;
     }
     this.languagesAbreviationForm.setValue(currentLanguage.abreviation);
-    this.languagesAbreviationForm.valueChanges.subscribe((abreviation) => {
+    this.languagesAbreviationForm.valueChanges.subscribe((abreviation: string) => {
       const usedLanguage = this.languages.find(
         (lang) => lang.abreviation === abreviation
       );
