@@ -12,6 +12,10 @@
   display: block;
 }
 
+.up-spacer {
+  height: 5vh;
+}
+
 .restauration-container {
   display: grid;
   grid-template-columns: 1fr 300px;
@@ -42,4 +46,8 @@
   top: 0px;
   height: fit-content;
   z-index: 1;
+}
+
+.down-spacer {
+  height: 7vh;
 }

@@ -44,14 +44,14 @@
   align-items: center;
 }
 
-.spacer {
+.up-spacer {
   display: flex;
-  height: 10vh;
+  height: 15vh;
 }
 
 .reservation-form {
   display: flex;
-  height: 55vh;
+  height: 54vh;
   flex-direction: column;
   border-radius: 10px;
   background-color: white;
@@ -71,7 +71,7 @@
   width: auto;
   height: 20vh;
   background-color: $white;
-  margin-bottom: 5vh;
+  margin-bottom: 4vh;
 }
 
 .reservation-image {
@@ -127,4 +127,9 @@
 
 :host ::ng-deep .mdc-circular-progress {
   position: absolute;
+}
+
+.down-spacer {
+  display: flex;
+  height: 7vh;
 }
