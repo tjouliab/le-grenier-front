@@ -30,10 +30,10 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class TimeDropdownComponent {
   @Input()
-  min: Moment = moment.utc().startOf('day');
+  min: Moment = moment().startOf('day');
 
   @Input()
-  max: Moment = moment.utc().endOf('day').subtract(1, 'minute');
+  max: Moment = moment().endOf('day').subtract(1, 'minute');
 
   @Input()
   minutesGap: number = 5;
