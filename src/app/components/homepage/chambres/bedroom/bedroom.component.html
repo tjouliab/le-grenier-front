@@ -1,0 +1,34 @@
+<div class="room-widget">
+  <!--TODO : carrousel -->
+  <div class="room-carrousel">
+    <img src="assets/room_place_holder.jpg" class='name-img'/>
+  </div>
+  <div class="room-details">
+    <div class="room-header">
+      <div class="room-display-row">
+        <p class="title-widget-format room-title">{{ bedroomName }}</p>
+        <p class="title-widget-format price">{{ price }}</p>
+      </div>
+      <p class="subtitle-widget-format person-max">
+        {{ numberPersonMax }} pers.
+      </p>
+      <p class="subtitle-widget-format surface">{{ numberSurface }} m²</p>
+    </div>
+    <div class="room-more-details">
+      <div class="room-details-left">
+        <p class="text-widget-format room-bed-details">{{ bedType }}</p>
+        <p class="text-widget-format room-description">
+          {{ shortDescription }}
+        </p>
+      </div>
+      <div class="room-details-right">
+        <p class="text-widget-format room-assets-title">Caractéristiques :</p>
+        <div class="text-widget-format room-assets-list">
+          @for(asset of assets; track asset){
+          <p class="text-widget-format room-asset">{{ asset }}</p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

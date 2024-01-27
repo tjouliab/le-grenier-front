@@ -1,0 +1,97 @@
+@import "../../../../../styles/colors.scss";
+
+.room-widget {
+  display: grid;
+  grid-template-columns: 33% 1fr;
+  background-color: white;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 5px 5px 5px $shadow-gray;
+  height: 40vh;
+  width: 100%;
+}
+
+.name-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.room-details {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5%;
+  width: 95%;
+}
+
+.room-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: flex-start;
+}
+
+.room-display-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.room-title {
+  margin: 0;
+}
+
+.price {
+  margin: 0;
+}
+
+.person-max {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.surface {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.room-more-details {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.room-details-right {
+  margin: 0 5% 0 0;
+}
+
+.room-bed-details {
+  display: flex;
+  align-self: flex-start;
+}
+
+.room-description {
+  margin: 0;
+}
+
+.room-details-left {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5% 0 0;
+}
+
+.room-assets-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.room-asset {
+  margin: 1%;
+  padding: 0;
+}
