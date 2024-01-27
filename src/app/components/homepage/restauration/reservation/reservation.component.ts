@@ -69,13 +69,13 @@ export class ReservationComponent {
   datePlaceholder: string = MY_FORMATS.parse.dateInput;
 
   InputTimeMinMax = {
-    MIN: moment().set({
+    MIN: moment.utc().set({
       hour: 18,
       minute: 0,
     }),
-    MAX: moment().set({
+    MAX: moment.utc().set({
       hour: 22,
-      minute: 35,
+      minute: 30,
     }),
   };
   minutesGap: number = 15;
@@ -90,8 +90,8 @@ export class ReservationComponent {
   messageMaxLength: number = 150;
 
   reservationForm = new FormGroup({
-    date: new FormControl(moment(), [Validators.required]),
-    time: new FormControl(moment(), [Validators.required]),
+    date: new FormControl(momentTz.tz('Europe/Paris'), [Validators.required]),
+    time: new FormControl(moment.utc(), [Validators.required]),
     personNumber: new FormControl('', [
       Validators.required,
       Validators.min(this.InputPersonMinMax.MIN),
@@ -108,8 +108,6 @@ export class ReservationComponent {
   ) {}
 
   ngOnInit(): void {
-    this.setupTimeInput();
-
     // Setup date input
     const currentMonth: number = new Date().getMonth();
     this.maxDate.setMonth(currentMonth + 1);
@@ -122,39 +120,6 @@ export class ReservationComponent {
         max: this.InputPersonMinMax.MAX,
       }
     );
-  }
-
-  setupTimeInput(): void {
-    const minTimeDate = moment().set({
-      hour: 18,
-      minute: 0,
-    });
-    const maxTimeDate = moment().set({
-      hour: 22,
-      minute: 30,
-    });
-
-    // Add one hour to current date
-    const addOneHourDate: moment.Moment = moment().add(1, 'hours');
-    if (addOneHourDate.isSameOrAfter(maxTimeDate)) {
-      // Consider the day is over, add one day to all dates
-      const currentDay: number = new Date().getDate();
-
-      this.minDate.setDate(currentDay + 1);
-      this.maxDate.setDate(currentDay + 1);
-      this.reservationForm.value.date.add(1, 'days');
-    } else if (addOneHourDate.isSameOrAfter(minTimeDate)) {
-      // Customers can make a reservation max 1h before
-      minTimeDate.set({
-        hour: addOneHourDate.hour(),
-        minute: this.approximateToUpperQuarter(addOneHourDate.minutes()),
-      });
-      this.InputTimeMinMax.MIN = minTimeDate;
-    }
-  }
-
-  private approximateToUpperQuarter(minutes: number): number {
-    return Math.floor(minutes / 15 + 1) * 15;
   }
 
   submitForm(): void {
