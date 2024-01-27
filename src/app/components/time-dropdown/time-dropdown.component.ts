@@ -9,9 +9,13 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { TranslateModule } from '@ngx-translate/core';
-import { Moment } from 'moment';
 import moment from 'moment';
 import { MatIconModule } from '@angular/material/icon';
+
+interface TimeSelection {
+  hour: string;
+  disabled: boolean;
+}
 
 @Component({
   selector: 'app-time-dropdown',
@@ -30,10 +34,16 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class TimeDropdownComponent {
   @Input()
-  min: Moment = moment.utc().startOf('day');
+  min: moment.Moment = moment().startOf('day');
 
   @Input()
-  max: Moment = moment.utc().endOf('day').subtract(1, 'minute');
+  max: moment.Moment = moment().endOf('day').subtract(1, 'minute');
+
+  @Input()
+  disableUnder: moment.Moment = null;
+
+  @Input()
+  disableOver: moment.Moment = null;
 
   @Input()
   minutesGap: number = 5;
@@ -45,9 +55,9 @@ export class TimeDropdownComponent {
   required: boolean = true;
 
   @Output()
-  newTimeSelectionEvent = new EventEmitter<Moment>();
+  newTimeSelectionEvent = new EventEmitter<moment.Moment>();
 
-  timeSelection: string[] = [];
+  timeSelection: TimeSelection[] = [];
   timeSelectionForm: FormControl;
   timeFormat: string = 'HH:mm';
 
@@ -55,9 +65,12 @@ export class TimeDropdownComponent {
 
   ngOnInit(): void {
     // Initialize time selection
-    let timeToInsert: Moment = this.min;
+    let timeToInsert: moment.Moment = this.min;
     while (timeToInsert.isSameOrBefore(this.max)) {
-      this.timeSelection.push(timeToInsert.format(this.timeFormat).toString());
+      this.timeSelection.push({
+        hour: timeToInsert.format(this.timeFormat).toString(),
+        disabled: this.isTimeSelectionDisabled(timeToInsert),
+      });
       timeToInsert = timeToInsert.add(this.minutesGap, 'minutes');
     }
 
@@ -70,5 +83,19 @@ export class TimeDropdownComponent {
     this.timeSelectionForm.valueChanges.subscribe((selectedTime: string) => {
       this.newTimeSelectionEvent.emit(moment(selectedTime, this.timeFormat));
     });
+  }
+
+  private isTimeSelectionDisabled(timeToInsert: moment.Moment): boolean {
+    if (this.disableUnder) {
+      if (timeToInsert.isBefore(this.disableUnder)) {
+        return true;
+      }
+    }
+    if (this.disableOver) {
+      if (timeToInsert.isAfter(this.disableUnder)) {
+        return true;
+      }
+    }
+    return false;
   }
 }

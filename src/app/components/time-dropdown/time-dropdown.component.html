@@ -1,11 +1,11 @@
 <mat-form-field appearance="fill" class="dropdown-container">
-  <mat-label>{{"SHARED.TIME" | translate}}</mat-label>
+  <mat-label>{{ "SHARED.TIME" | translate }}</mat-label>
   <mat-select [formControl]="timeSelectionForm" [placeholder]="placeholder">
     @for (time of timeSelection; track time) {
-    <mat-option [value]="time">
+    <mat-option [value]="time.hour" [disabled]="time.disabled">
       <div>
         <span>
-          {{ time }}
+          {{ time.hour }}
         </span>
       </div>
     </mat-option>
