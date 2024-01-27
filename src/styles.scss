@@ -121,3 +121,9 @@ body {
   white-space: pre-wrap;
   border-radius: var(--mdc-snackbar-container-shape);
 }
+
+// Tooltips
+.allergen-tooltip {
+  --mdc-plain-tooltip-container-color: gray;
+  --mdc-plain-tooltip-supporting-text-size: 16px;
+}

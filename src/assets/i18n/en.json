@@ -1,10 +1,65 @@
 {
+  "CONTACT": {
+    "CONTACT_ACCES": "Contact and Access",
+    "CONTACT_MAIL": "Contact mail",
+    "ENVOYER": "Send",
+    "ENVOYEZ_MESSAGE": "Leave us a message !",
+    "MESSAGE": "Message",
+    "NOM": "Name",
+    "PLACEHOLDERS": {
+      "NOM": "Your name",
+      "MAIL": "Your mail adress",
+      "SUJET_MESSAGE": "Subject",
+      "VOTRE_MESSAGE": "Your message"
+    },
+    "PRESENTATION": "We look forward to welcoming you to our charming hotel in the center of Strasbourg, a stone's throw from the cathedral. For more information on our rates and to make a reservation, please contact us directly by phone or fill in the form below.",
+    "SUJET": "Subject",
+    "USER_MAIL": "Mail"
+  },
   "HOMEPAGE": {
     "HEADER": {
       "ACCUEIL": "Home",
-      "CHAMBRES": "Bedrooms",
+      "CHAMBRES": "Rooms",
       "CONTACT": "Contact",
-      "RESTAURATION": "Restoration"
+      "LANGUE": "Language",
+      "RESTAURATION": "Restauration"
+    },
+    "FOOTER": {
+      "CGV": "CGV",
+      "CONFIDENTIALITY": "Politique de confidentialité",
+      "FAQ": "FAQ",
+      "LEGAL": "Mentions légales"
     }
+  },
+  "RESTAURATION": {
+    "ALLERGIES": {
+      "CRUSTACEANS": "Crustaceans",
+      "EGGS": "Eggs",
+      "FISH": "Fish",
+      "GLUTEN": "Gluten",
+      "MILK": "Milk",
+      "PEANUT": "Peanut"
+    },
+    "PAGE": {
+      "DESSERTS": "Desserts",
+      "ENTRIES": "Entries",
+      "MAIN": "Main"
+    },
+    "RESERVATION": {
+      "DATE": "Date",
+      "PERSON_INTERVAL": "From {{min}} to {{max}} people",
+      "PERSON_NUMBER": "Person number",
+      "RESERVATION": "Reservation",
+      "TIME": "Time"
+    }
+  },
+  "SHARED": {
+    "OK": "OK",
+    "TIME": "Time"
+  },
+  "SNACKBARS": {
+    "MESSAGE_SENT": "Your message has been sent",
+    "RESERVATION_FULL": "We are fully booked at this date",
+    "SERVER_ERROR": "A server error has occurred"
   }
 }

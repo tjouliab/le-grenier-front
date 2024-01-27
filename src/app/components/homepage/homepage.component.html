@@ -1,8 +1,10 @@
 <!-- Header -->
 <mat-toolbar class="homepage-toolbar">
-  <span class="logo-header-format">Le </span>
-  <img class="homepage-logo" src="assets/images/logo2.png" />
-  <span class="logo-header-format">renier</span>
+  <div class="homepage-toolbar-logo" routerLink="/accueil">
+    <span class="logo-header-format">Le </span>
+    <img class="homepage-logo" src="assets/images/logo2.png" />
+    <span class="logo-header-format">renier</span>
+  </div>
   <span class="spacer"></span>
   <nav>
     <mat-list class="homepage-navigation">
@@ -40,6 +42,7 @@
 </mat-toolbar>
 
 <!-- Page content -->
+<div class="header-body-spacer"></div>
 <router-outlet class="page-content"></router-outlet>
 
 <!-- Footer -->
@@ -48,8 +51,12 @@
     <img class="footer-logo" src="assets/images/logo1.png" />
     <div class="contact-info">
       <span class="text-footer-format contact-info-text"> {{ address }} </span>
-      <span class="text-footer-format contact-info-text"> {{ contactMail }} </span>
-      <span class="text-footer-format contact-info-text"> {{ contactPhone }} </span>
+      <span class="text-footer-format contact-info-text">
+        {{ contactMail }}
+      </span>
+      <span class="text-footer-format contact-info-text">
+        {{ contactPhone }}
+      </span>
     </div>
   </div>
   <div class="footer-links">
