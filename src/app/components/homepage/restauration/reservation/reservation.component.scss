@@ -7,6 +7,14 @@
 :host
   ::ng-deep
   .all-form-fields
+  > *:first-child
+  .mat-mdc-text-field-wrapper {
+  border-radius: 10px 10px 0 0;
+}
+
+:host
+  ::ng-deep
+  .all-form-fields
   > *:not(:first-child)
   .mat-mdc-text-field-wrapper {
   border-radius: 0;
@@ -36,16 +44,16 @@
   align-items: center;
 }
 
-.spacer {
+.up-spacer {
   display: flex;
-  height: 10vh;
+  height: 15vh;
 }
 
 .reservation-form {
   display: flex;
-  height: 55vh;
+  height: 54vh;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: white;
   box-shadow: 5px 5px 5px $shadow-gray;
 }
@@ -63,7 +71,7 @@
   width: auto;
   height: 20vh;
   background-color: $white;
-  margin-bottom: 5vh;
+  margin-bottom: 4vh;
 }
 
 .reservation-image {
@@ -103,7 +111,7 @@
   width: 100%;
   height: 5vh;
   border: none;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 10px 10px;
   cursor: pointer;
 }
 .submit-button:not([disabled]) {
@@ -119,4 +127,9 @@
 
 :host ::ng-deep .mdc-circular-progress {
   position: absolute;
+}
+
+.down-spacer {
+  display: flex;
+  height: 7vh;
 }

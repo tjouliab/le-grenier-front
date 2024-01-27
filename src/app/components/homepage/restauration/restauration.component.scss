@@ -12,6 +12,10 @@
   display: block;
 }
 
+.up-spacer {
+  height: 5vh;
+}
+
 .restauration-container {
   display: grid;
   grid-template-columns: 1fr 300px;
@@ -31,14 +35,29 @@
   padding: 0;
 }
 
-.meal-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+@media (max-width: 1300px) {
+  .meal-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .meal-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
 }
 
 .reservation-container {
   position: sticky;
   top: 0px;
   height: fit-content;
+  z-index: 1;
+}
+
+.down-spacer {
+  height: 7vh;
 }

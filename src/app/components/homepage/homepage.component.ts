@@ -1,9 +1,9 @@
-import { Component, Injectable } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { LanguageDropdownComponent } from '../language-dropdown/language-dropdown.component';
 import {
   ADDRESS,
@@ -25,7 +25,6 @@ import { AutoFocusDirective } from '../../directives/autofocus.directive';
     LanguageDropdownComponent,
     AutoFocusDirective,
   ],
-  providers: [TranslateService],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
@@ -35,7 +34,7 @@ export class HomepageComponent {
   contactPhone: string;
   trademark: string;
 
-  constructor(private translate: TranslateService, private router: Router) {
+  constructor(private router: Router) {
     this.address = ADDRESS;
     this.contactMail = CONTACT_EMAIL;
     this.contactPhone = CONTACT_PHONE;

@@ -11,7 +11,11 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { MAT_DATE_FORMATS, MatNativeDateModule } from '@angular/material/core';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MatNativeDateModule,
+} from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import {
   MatMomentDateModule,
@@ -104,10 +108,13 @@ export class ReservationComponent {
 
   constructor(
     private translate: TranslateService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _adapter: DateAdapter<any>
   ) {}
 
   ngOnInit(): void {
+    this.setupLocalDateFormat();
+
     // Setup date input
     const currentMonth: number = new Date().getMonth();
     this.maxDate.setMonth(currentMonth + 1);
@@ -122,6 +129,15 @@ export class ReservationComponent {
     );
   }
 
+  setupLocalDateFormat(): void {
+    this._adapter.setLocale(this.translate.currentLang);
+    this.translate.onLangChange.subscribe({
+      next: (event: { lang: string }) => {
+        this._adapter.setLocale(event.lang);
+      },
+    });
+  }
+
   submitForm(): void {
     if (!this.reservationForm.valid) {
       return;
@@ -129,7 +145,7 @@ export class ReservationComponent {
     this.loadingSubmit = true;
     of('reponse')
       .pipe(delay(2000))
-      .subscribe((data) => {
+      .subscribe(() => {
         this.loadingSubmit = false;
         this.openSnackBar(
           this.translate.instant('SNACKBARS.RESERVATION_FULL'),
