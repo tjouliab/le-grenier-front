@@ -167,13 +167,13 @@ export class ReservationComponent {
       // Customers can make a reservation max 1h before
       this.InputTimeMinMax.DisableUnder = moment().set({
         hour: addOneHourDate.hour(),
-        minute: this.approximateToUpperQuarter(addOneHourDate.minutes()),
+        minute: this.roundedDownQuarter(addOneHourDate.minutes()),
       });
     }
   }
 
-  private approximateToUpperQuarter(minutes: number): number {
-    return Math.floor(minutes / 15 + 1) * 15;
+  private roundedDownQuarter(minutes: number): number {
+    return Math.floor(minutes / 15) * 15;
   }
 
   submitForm(): void {
