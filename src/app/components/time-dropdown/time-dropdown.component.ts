@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -64,16 +70,6 @@ export class TimeDropdownComponent {
   constructor() {}
 
   ngOnInit(): void {
-    // Initialize time selection
-    let timeToInsert: moment.Moment = this.min;
-    while (timeToInsert.isSameOrBefore(this.max)) {
-      this.timeSelection.push({
-        hour: timeToInsert.format(this.timeFormat).toString(),
-        disabled: this.isTimeSelectionDisabled(timeToInsert),
-      });
-      timeToInsert = timeToInsert.add(this.minutesGap, 'minutes');
-    }
-
     // Initialize time form
     if (this.required) {
       this.timeSelectionForm = new FormControl('', Validators.required);
@@ -83,6 +79,17 @@ export class TimeDropdownComponent {
     this.timeSelectionForm.valueChanges.subscribe((selectedTime: string) => {
       this.newTimeSelectionEvent.emit(moment(selectedTime, this.timeFormat));
     });
+
+    this.updateTimeSelection();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['disableUnder'] && !changes['disableUnder'].firstChange) {
+      this.updateTimeSelection();
+    }
+    if (changes['disableOver'] && !changes['disableOver'].firstChange) {
+      this.updateTimeSelection();
+    }
   }
 
   private isTimeSelectionDisabled(timeToInsert: moment.Moment): boolean {
@@ -97,5 +104,26 @@ export class TimeDropdownComponent {
       }
     }
     return false;
+  }
+
+  private updateTimeSelection(): void {
+    this.timeSelection = [];
+    let timeToInsert: moment.Moment = this.min.clone();
+    while (timeToInsert.isSameOrBefore(this.max)) {
+      this.timeSelection.push({
+        hour: timeToInsert.format(this.timeFormat).toString(),
+        disabled: this.isTimeSelectionDisabled(timeToInsert),
+      });
+      timeToInsert = timeToInsert.add(this.minutesGap, 'minutes');
+    }
+
+    // If switching days, check that time is not disabled
+    if (
+      !this.timeSelection.find(
+        (time) => time.hour === this.timeSelectionForm?.value && !time.disabled
+      )
+    ) {
+      this.timeSelectionForm.patchValue('');
+    }
   }
 }
