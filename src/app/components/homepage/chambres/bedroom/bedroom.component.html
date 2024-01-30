@@ -10,7 +10,7 @@
         <p class="title-widget-format price">{{ price }}</p>
       </div>
       <p class="subtitle-widget-format person-max">
-        {{ numberPersonMax }} pers.
+        {{ numberPersonMax }} {{ "CHAMBRES.COMPONENT.PEOPLE" | translate }}
       </p>
       <p class="subtitle-widget-format surface">{{ numberSurface }} m²</p>
     </div>
@@ -24,7 +24,9 @@
         </div>
       </div>
       <div class="room-details-right">
-        <p class="text-widget-format room-assets-title">Caractéristiques :</p>
+        <p class="text-widget-format room-assets-title">
+          {{ "CHAMBRES.COMPONENT.CARACTERISTICS" | translate }} :
+        </p>
         <div class="text-widget-format room-assets-list">
           @for(asset of assets; track asset){
           <p class="text-widget-format room-asset">{{ asset }}</p>

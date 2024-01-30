@@ -6,11 +6,12 @@ import {
   BedroomDto,
   RoomPrice,
 } from '../../../../dto/bedroom.dto';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-bedroom',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './bedroom.component.html',
   styleUrl: './bedroom.component.scss',
 })
