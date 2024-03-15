@@ -1,19 +1,21 @@
 import {
+  ApplicationRef,
+  ComponentRef,
   Directive,
   ElementRef,
+  EmbeddedViewRef,
+  EnvironmentInjector,
   HostListener,
-  Injector,
   Input,
   OnDestroy,
   OnInit,
-  ViewContainerRef,
+  createComponent,
+  createEnvironmentInjector,
 } from '@angular/core';
 import {
   ChefTooltipComponent,
   TOOLTIP_DATA,
 } from '../components/tooltips/chef-tooltip/chef-tooltip.component';
-import { Overlay, OverlayRef, PositionStrategy } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
 
 @Directive({
   selector: '[appTooltip]',
@@ -22,73 +24,61 @@ import { ComponentPortal } from '@angular/cdk/portal';
 export class TooltipDirective implements OnInit, OnDestroy {
   @Input() appTooltip = '';
 
-  private overlayRef: OverlayRef = null;
+  private componentRef: ComponentRef<ChefTooltipComponent> = null;
 
   constructor(
-    private element: ElementRef<HTMLElement>,
-    private overlay: Overlay,
-    private viewContainer: ViewContainerRef
+    private appRef: ApplicationRef,
+    private elementRef: ElementRef,
+    private injector: EnvironmentInjector
   ) {}
 
-  ngOnInit(): void {
-    if (this.overlayRef === null) {
-      const positionStrategy = this.getPositionStrategy();
-      this.overlayRef = this.overlay.create({ positionStrategy });
-    }
-  }
+  ngOnInit(): void {}
 
   @HostListener('mouseenter')
-  showTooltip(): void {
-    if (this.overlayRef?.hasAttached() === true) {
-      return;
+  onMouseEnter(): void {
+    if (this.componentRef === null) {
+      const environmentInjector = createEnvironmentInjector(
+        [
+          {
+            provide: TOOLTIP_DATA,
+            useValue: { tooltipText: this.appTooltip },
+          },
+        ],
+        this.injector
+      );
+
+      this.componentRef = createComponent(ChefTooltipComponent, {
+        environmentInjector,
+      });
+
+      const domElem = (this.componentRef.hostView as EmbeddedViewRef<any>)
+        .rootNodes[0] as HTMLElement;
+
+      const rect =
+        this.elementRef.nativeElement.getBoundingClientRect();
+
+      domElem.style.position = 'absolute';
+      domElem.style.top = `${rect.bottom + window.scrollY}px`;
+      domElem.style.left = `${rect.left + window.scrollX}px`;
+
+      document.body.appendChild(domElem);
     }
-    this.attachTooltip();
   }
 
   @HostListener('mouseleave')
-  hideTooltip(): void {
-    if (this.overlayRef?.hasAttached() === true) {
-      this.overlayRef?.detach();
-    }
-  }
-
-  private attachTooltip(): void {
-    if (this.overlayRef === null) {
-      return;
-    }
-
-    const injector = Injector.create({
-      providers: [
-        {
-          provide: TOOLTIP_DATA,
-          useValue: this.appTooltip,
-        },
-      ],
-    });
-    const component = new ComponentPortal(
-      ChefTooltipComponent,
-      this.viewContainer,
-      injector
-    );
-    this.overlayRef.attach(component);
-  }
-
-  private getPositionStrategy(): PositionStrategy {
-    return this.overlay
-      .position()
-      .flexibleConnectedTo(this.element)
-      .withPositions([
-        {
-          originX: 'center',
-          originY: 'bottom',
-          overlayX: 'center',
-          overlayY: 'top',
-          panelClass: 'bottom',
-        },
-      ]);
+  onMouseLeave(): void {
+    this.destroy();
   }
 
   ngOnDestroy(): void {
-    this.overlayRef?.dispose();
+    this.destroy();
+  }
+
+  destroy(): void {
+    if (this.componentRef !== null) {
+      this.appRef.detachView(this.componentRef.hostView);
+      this.componentRef.destroy();
+      this.componentRef = null;
+    }
   }
 }
