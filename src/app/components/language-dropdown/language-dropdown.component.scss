@@ -21,6 +21,14 @@
   display: none;
 }
 
+:host ::ng-deep .mat-mdc-select-arrow {
+  transition: transform 200ms ease-in-out;
+}
+
+.arrow-orientation ::ng-deep .mat-mdc-select-arrow {
+  transform: rotate(180deg);
+}
+
 .option-content {
   display: flex;
   align-items: center;
