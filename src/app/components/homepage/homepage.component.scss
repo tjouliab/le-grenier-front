@@ -30,9 +30,18 @@
   flex: 1 1 auto;
 }
 
+.homepage-navigation-row {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .homepage-navigation {
   display: table;
+  margin: 0;
+  padding: 0;
   width: 80%;
+  height: 80%;
   table-layout: fixed;
   margin-left: auto;
   margin-right: 0;
@@ -40,8 +49,10 @@
 
 .routing-item {
   display: table-cell;
+  height: 100%;
   text-align: center;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .routing-item:hover {
