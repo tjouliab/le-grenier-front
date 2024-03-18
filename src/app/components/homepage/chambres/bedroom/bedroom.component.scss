@@ -2,7 +2,6 @@
 
 .room-widget {
   display: flex;
-  // grid-template-columns: 40% 1fr;
   background-color: white;
   border-radius: 10px 0 0 10px;
   box-shadow: 5px 5px 5px $shadow-gray;
@@ -103,10 +102,8 @@
 
 .room-assets-title {
   font-size: 20px;
-  color: $blue;
   text-decoration: underline;
   margin-bottom: 3%;
-  font-family: "Yanone-Kaffeesatz-Regular", sans-serif;
 }
 
 .room-assets-list {

@@ -23,8 +23,9 @@
           </p>
         </div>
       </div>
+      @if (assets.length > 0) {
       <div class="room-details-right">
-        <p class="text-widget-format room-assets-title">
+        <p class="title-widget-format room-assets-title">
           {{ "CHAMBRES.COMPONENT.CARACTERISTICS" | translate }} :
         </p>
         <div class="text-widget-format room-assets-list">
@@ -33,6 +34,7 @@
           }
         </div>
       </div>
+      }
     </div>
   </div>
 </div>
