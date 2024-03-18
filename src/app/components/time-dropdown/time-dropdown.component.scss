@@ -1,4 +1,5 @@
-@import '../../../styles/colors.scss';
+@import "../../../styles/colors.scss";
+@import "../../../styles.scss";
 
 .dropdown-container {
   width: 100%;
@@ -6,8 +7,4 @@
 
 :host ::ng-deep .mat-mdc-select-arrow {
   display: none;
-}
-
-.icon-style {
-  color: $icon-gray;
 }

@@ -27,11 +27,14 @@
           readonly
         />
         <mat-datepicker-toggle matSuffix [for]="picker"
-          ><mat-icon matDatepickerToggleIcon
+          ><mat-icon
+            class="icon-style"
+            [ngClass]="{ 'arrow-orientation': dropdownOpened }"
+            matDatepickerToggleIcon
             >keyboard_arrow_down</mat-icon
           ></mat-datepicker-toggle
         >
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker (opened)="onDatePickerOpen()" (closed)="onDatePickerClosed()"></mat-datepicker>
       </mat-form-field>
 
       <app-time-dropdown

@@ -67,6 +67,8 @@ export class TimeDropdownComponent {
   timeSelectionForm: FormControl;
   timeFormat: string = 'HH:mm';
 
+  dropdownOpened = false;
+
   constructor() {}
 
   ngOnInit(): void {
@@ -125,5 +127,9 @@ export class TimeDropdownComponent {
     ) {
       this.timeSelectionForm.patchValue('');
     }
+  }
+
+  onOpenedChange($event: boolean): void {
+    this.dropdownOpened = $event;
   }
 }

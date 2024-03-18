@@ -2,7 +2,6 @@
   <mat-select
     class="language-dropdown"
     (openedChange)="onOpenedChange($event)"
-    [ngClass]="{ 'arrow-orientation': dropdownOpened }"
     [formControl]="languagesAbreviationForm"
   >
     <mat-select-trigger>
@@ -28,4 +27,5 @@
     </mat-option>
     }
   </mat-select>
+  <mat-icon class="icon-style" [ngClass]="{ 'arrow-orientation': dropdownOpened }" matSuffix>keyboard_arrow_down</mat-icon>
 </mat-form-field>

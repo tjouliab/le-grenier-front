@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import moment from 'moment';
+import { MatIconModule } from '@angular/material/icon';
 
 interface Language {
   code: string;
@@ -22,6 +23,7 @@ interface Language {
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
+    MatIconModule,
   ],
   templateUrl: './language-dropdown.component.html',
   styleUrl: './language-dropdown.component.scss',
