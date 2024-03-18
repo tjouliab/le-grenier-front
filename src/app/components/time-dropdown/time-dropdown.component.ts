@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -9,9 +15,13 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { TranslateModule } from '@ngx-translate/core';
-import { Moment } from 'moment';
 import moment from 'moment';
 import { MatIconModule } from '@angular/material/icon';
+
+interface TimeSelection {
+  hour: string;
+  disabled: boolean;
+}
 
 @Component({
   selector: 'app-time-dropdown',
@@ -30,10 +40,16 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class TimeDropdownComponent {
   @Input()
-  min: Moment = moment.utc().startOf('day');
+  min: moment.Moment = moment().startOf('day');
 
   @Input()
-  max: Moment = moment.utc().endOf('day').subtract(1, 'minute');
+  max: moment.Moment = moment().endOf('day').subtract(1, 'minute');
+
+  @Input()
+  disableUnder: moment.Moment = null;
+
+  @Input()
+  disableOver: moment.Moment = null;
 
   @Input()
   minutesGap: number = 5;
@@ -45,22 +61,15 @@ export class TimeDropdownComponent {
   required: boolean = true;
 
   @Output()
-  newTimeSelectionEvent = new EventEmitter<Moment>();
+  newTimeSelectionEvent = new EventEmitter<moment.Moment>();
 
-  timeSelection: string[] = [];
+  timeSelection: TimeSelection[] = [];
   timeSelectionForm: FormControl;
   timeFormat: string = 'HH:mm';
 
   constructor() {}
 
   ngOnInit(): void {
-    // Initialize time selection
-    let timeToInsert: Moment = this.min;
-    while (timeToInsert.isSameOrBefore(this.max)) {
-      this.timeSelection.push(timeToInsert.format(this.timeFormat).toString());
-      timeToInsert = timeToInsert.add(this.minutesGap, 'minutes');
-    }
-
     // Initialize time form
     if (this.required) {
       this.timeSelectionForm = new FormControl('', Validators.required);
@@ -70,5 +79,51 @@ export class TimeDropdownComponent {
     this.timeSelectionForm.valueChanges.subscribe((selectedTime: string) => {
       this.newTimeSelectionEvent.emit(moment(selectedTime, this.timeFormat));
     });
+
+    this.updateTimeSelection();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['disableUnder'] && !changes['disableUnder'].firstChange) {
+      this.updateTimeSelection();
+    }
+    if (changes['disableOver'] && !changes['disableOver'].firstChange) {
+      this.updateTimeSelection();
+    }
+  }
+
+  private isTimeSelectionDisabled(timeToInsert: moment.Moment): boolean {
+    if (this.disableUnder) {
+      if (timeToInsert.isBefore(this.disableUnder)) {
+        return true;
+      }
+    }
+    if (this.disableOver) {
+      if (timeToInsert.isAfter(this.disableUnder)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private updateTimeSelection(): void {
+    this.timeSelection = [];
+    let timeToInsert: moment.Moment = this.min.clone();
+    while (timeToInsert.isSameOrBefore(this.max)) {
+      this.timeSelection.push({
+        hour: timeToInsert.format(this.timeFormat).toString(),
+        disabled: this.isTimeSelectionDisabled(timeToInsert),
+      });
+      timeToInsert = timeToInsert.add(this.minutesGap, 'minutes');
+    }
+
+    // If switching days, check that time is not disabled
+    if (
+      !this.timeSelection.find(
+        (time) => time.hour === this.timeSelectionForm?.value && !time.disabled
+      )
+    ) {
+      this.timeSelectionForm.patchValue('');
+    }
   }
 }
