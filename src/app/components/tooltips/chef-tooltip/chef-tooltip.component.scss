@@ -1,0 +1,19 @@
+@keyframes fadeInScale {
+  from {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fade-in-start {
+  transform: scale(0.75);
+  opacity: 0;
+}
+
+.fade-in-end {
+  animation: fadeInScale 0.25s ease forwards;
+}

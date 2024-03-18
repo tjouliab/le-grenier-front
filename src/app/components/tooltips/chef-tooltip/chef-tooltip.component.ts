@@ -22,9 +22,11 @@ export const TOOLTIP_DATA = new InjectionToken<TooltipData>('TOOLTIP_DATA');
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChefTooltipComponent implements OnInit {
+  componentLoaded = false;
+
   constructor(@Inject(TOOLTIP_DATA) public data: TooltipData) {}
 
   ngOnInit(): void {
-    console.log('data', this.data);
+    this.componentLoaded = true;
   }
 }

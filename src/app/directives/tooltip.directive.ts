@@ -50,12 +50,12 @@ export class TooltipDirective implements OnInit, OnDestroy {
       this.componentRef = createComponent(ChefTooltipComponent, {
         environmentInjector,
       });
+      this.appRef.attachView(this.componentRef.hostView);
 
       const domElem = (this.componentRef.hostView as EmbeddedViewRef<any>)
         .rootNodes[0] as HTMLElement;
 
-      const rect =
-        this.elementRef.nativeElement.getBoundingClientRect();
+      const rect = this.elementRef.nativeElement.getBoundingClientRect();
 
       domElem.style.position = 'absolute';
       domElem.style.top = `${rect.bottom + window.scrollY}px`;
