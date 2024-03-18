@@ -12,73 +12,76 @@ import {
   createComponent,
   createEnvironmentInjector,
 } from '@angular/core';
-import {
-  ChefTooltipComponent,
-  TOOLTIP_DATA,
-} from '../components/tooltips/chef-tooltip/chef-tooltip.component';
 
 @Directive({
   selector: '[appTooltip]',
   standalone: true,
 })
-export class TooltipDirective implements OnInit, OnDestroy {
-  @Input() appTooltip = '';
+export class TooltipDirective {
+  /* Do not delete, can be used later */
 
-  private componentRef: ComponentRef<ChefTooltipComponent> = null;
+  // @Input() appTooltip = '';
 
-  constructor(
-    private appRef: ApplicationRef,
-    private elementRef: ElementRef,
-    private injector: EnvironmentInjector
-  ) {}
+  // private componentRef: ComponentRef<ChefTooltipComponent> = null;
 
-  ngOnInit(): void {}
+  // constructor(
+  //   private appRef: ApplicationRef,
+  //   private elementRef: ElementRef,
+  //   private injector: EnvironmentInjector
+  // ) {}
 
-  @HostListener('mouseenter')
-  onMouseEnter(): void {
-    if (this.componentRef === null) {
-      const environmentInjector = createEnvironmentInjector(
-        [
-          {
-            provide: TOOLTIP_DATA,
-            useValue: { tooltipText: this.appTooltip },
-          },
-        ],
-        this.injector
-      );
+  // ngOnInit(): void {}
 
-      this.componentRef = createComponent(ChefTooltipComponent, {
-        environmentInjector,
-      });
-      this.appRef.attachView(this.componentRef.hostView);
+  // @HostListener('mouseenter')
+  // onMouseEnter(): void {
+  //   if (this.componentRef === null) {
+  //     const environmentInjector = createEnvironmentInjector(
+  //       [
+  //         {
+  //           provide: TOOLTIP_DATA,
+  //           useValue: { tooltipText: this.appTooltip },
+  //         },
+  //       ],
+  //       this.injector
+  //     );
 
-      const domElem = (this.componentRef.hostView as EmbeddedViewRef<any>)
-        .rootNodes[0] as HTMLElement;
+  //     this.componentRef = createComponent(ChefTooltipComponent, {
+  //       environmentInjector,
+  //     });
+  //     this.appRef.attachView(this.componentRef.hostView);
 
-      const rect = this.elementRef.nativeElement.getBoundingClientRect();
+  //     const domElem = (this.componentRef.hostView as EmbeddedViewRef<any>)
+  //       .rootNodes[0] as HTMLElement;
 
-      domElem.style.position = 'absolute';
-      domElem.style.top = `${rect.bottom + window.scrollY}px`;
-      domElem.style.left = `${rect.left + window.scrollX}px`;
+  //     const rect = this.elementRef.nativeElement.getBoundingClientRect();
 
-      document.body.appendChild(domElem);
-    }
-  }
+  //     domElem.style.position = 'absolute';
+  //     domElem.style.top = `${rect.bottom + window.scrollY}px`;
+  //     domElem.style.left = `${rect.left + window.scrollX}px`;
 
-  @HostListener('mouseleave')
-  onMouseLeave(): void {
-    this.destroy();
-  }
+  //     document.body.appendChild(domElem);
+  //   }
+  // }
 
-  ngOnDestroy(): void {
-    this.destroy();
-  }
+  // @HostListener('window:scroll')
+  // onWindowScroll(): void {
+  //   this.destroy();
+  // }
 
-  destroy(): void {
-    if (this.componentRef !== null) {
-      this.appRef.detachView(this.componentRef.hostView);
-      this.componentRef.destroy();
-      this.componentRef = null;
-    }
-  }
+  // @HostListener('mouseleave')
+  // onMouseLeave(): void {
+  //   this.destroy();
+  // }
+
+  // ngOnDestroy(): void {
+  //   this.destroy();
+  // }
+
+  // destroy(): void {
+  //   if (this.componentRef !== null) {
+  //     this.appRef.detachView(this.componentRef.hostView);
+  //     this.componentRef.destroy();
+  //     this.componentRef = null;
+  //   }
+  // }
 }

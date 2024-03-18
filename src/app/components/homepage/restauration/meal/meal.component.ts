@@ -31,6 +31,8 @@ export class MealComponent {
   allergies: Allergy[];
   chefData: ChefData;
 
+  chefNameHovering = false;
+
   ngOnInit(): void {
     if (!this.meal) {
       return;
@@ -43,5 +45,13 @@ export class MealComponent {
     this.description = this.meal.description;
     this.allergies = this.meal.allergies;
     this.chefData = this.meal.chefData;
+  }
+
+  protected onMouseEnterChefName(): void {
+    this.chefNameHovering = true;
+  }
+
+  protected onMouseOutChefName(): void {
+    this.chefNameHovering = false;
   }
 }

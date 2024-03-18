@@ -1,6 +1,14 @@
 <div class="meal-widget">
-  <div class="meal-image">
-    <img [src]="imageUrl" />
+  <div class="meal-image-container">
+    <img
+      [ngClass]="{ 'meal-image-fade': chefNameHovering }"
+      [src]="imageUrl"
+    />
+    <img
+      class="meal-image-absolute"
+      [ngClass]="{ 'meal-image-fade': !chefNameHovering }"
+      [src]="chefData.picturePath"
+    />
   </div>
   <div class="meal-details">
     <div class="meal-header">
@@ -8,7 +16,11 @@
         <p class="title-widget-format meal-title">{{ mealTitle }}</p>
         <p class="title-widget-format price">{{ price }}</p>
       </div>
-      <p class="subtitle-widget-format chef-name" [appTooltip]="chefData.name">
+      <p
+        class="subtitle-widget-format chef-name"
+        (mouseenter)="onMouseEnterChefName()"
+        (mouseleave)="onMouseOutChefName()"
+      >
         {{ chefData.name }}
       </p>
     </div>
