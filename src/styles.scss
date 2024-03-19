@@ -103,6 +103,12 @@ body {
   line-height: 120%;
 }
 
+.indicator-widget-format {
+  font-size: 19px;
+  color: $blue;
+  font-family: "Yanone-Kaffeesatz-Bold", sans-serif;
+}
+
 // Snackbars
 .error-snackbar {
   --mdc-snackbar-container-color: #8e3337 !important;
