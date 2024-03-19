@@ -134,6 +134,13 @@
   flex-direction: row;
 }
 
+.footer-profile-technos {
+  display: flex;
+  flex-direction: row;
+  gap: 4vw;
+  justify-content: center;
+}
+
 .profile-link {
   color: white;
   text-decoration: none;
