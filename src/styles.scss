@@ -127,3 +127,13 @@ body {
   --mdc-plain-tooltip-container-color: gray;
   --mdc-plain-tooltip-supporting-text-size: 16px;
 }
+
+// Dropdowns
+.icon-style {
+  color: $icon-gray;
+  transition: transform 200ms ease-in-out;
+}
+
+.arrow-orientation {
+  transform: rotate(180deg);
+}

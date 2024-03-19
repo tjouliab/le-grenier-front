@@ -26,13 +26,20 @@
   width: auto;
 }
 
-.spacer {
-  flex: 1 1 auto;
+.homepage-navigation-row {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 1vh;
+  margin-right: 1vh;
 }
 
 .homepage-navigation {
   display: table;
-  width: 80%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 6vh;
   table-layout: fixed;
   margin-left: auto;
   margin-right: 0;
@@ -40,8 +47,10 @@
 
 .routing-item {
   display: table-cell;
+  height: 100%;
   text-align: center;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .routing-item:hover {
@@ -57,7 +66,6 @@
   display: flex;
   height: 100%;
   width: auto;
-  margin-left: 1%;
 }
 
 // Page Content

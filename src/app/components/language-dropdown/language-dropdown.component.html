@@ -1,5 +1,9 @@
 <mat-form-field appearance="fill">
-  <mat-select [formControl]="languagesAbreviationForm">
+  <mat-select
+    class="language-dropdown"
+    (openedChange)="onOpenedChange($event)"
+    [formControl]="languagesAbreviationForm"
+  >
     <mat-select-trigger>
       <div class="option-content">
         <img
@@ -23,4 +27,5 @@
     </mat-option>
     }
   </mat-select>
+  <mat-icon class="icon-style" [ngClass]="{ 'arrow-orientation': dropdownOpened }" matSuffix>keyboard_arrow_down</mat-icon>
 </mat-form-field>

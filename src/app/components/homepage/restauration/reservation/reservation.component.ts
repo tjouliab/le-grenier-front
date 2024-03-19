@@ -99,6 +99,7 @@ export class ReservationComponent {
   });
 
   loadingSubmit: boolean = false;
+  dropdownOpened = false;
 
   constructor(
     private translate: TranslateService,
@@ -211,5 +212,13 @@ export class ReservationComponent {
 
   onDateChange(): void {
     this.updateDisableUnderValue();
+  }
+
+  onDatePickerOpen(): void {
+    this.dropdownOpened = true;
+  }
+
+  onDatePickerClosed(): void {
+    this.dropdownOpened = false;
   }
 }
