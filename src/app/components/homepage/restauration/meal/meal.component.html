@@ -1,29 +1,34 @@
 <div class="meal-widget">
   <div class="meal-image-container">
-    <img
-      [ngClass]="{ 'meal-image-fade': chefNameHovering }"
-      [src]="imageUrl"
-    />
+    <img [ngClass]="{ 'meal-image-fade': chefNameMode }" [src]="imageUrl" />
     <img
       class="meal-image-absolute"
-      [ngClass]="{ 'meal-image-fade': !chefNameHovering }"
+      [ngClass]="{ 'meal-image-fade': !chefNameMode }"
       [src]="chefData.picturePath"
     />
   </div>
   <div class="meal-details">
     <div class="meal-header">
       <div class="meal-display-row">
-        <p class="title-widget-format meal-title">{{ mealTitle }}</p>
+        <p class="title-widget-format meal-title">
+          {{ chefNameMode ? chefData.name : mealTitle }}
+        </p>
+        @if(!chefNameMode) {
         <p class="title-widget-format price">{{ price }}</p>
+        } @else {
+        <div class="calendar-container">
+          <mat-icon class="calendar">calendar_today</mat-icon>
+          <p class="calendar-indicator text-body-format">
+            {{ chefYearsOfExperience }}
+          </p>
+        </div>
+        }
       </div>
-      <p
-        class="subtitle-widget-format chef-name"
-        (mouseenter)="onMouseEnterChefName()"
-        (mouseleave)="onMouseOutChefName()"
-      >
-        {{ chefData.name }}
+      <p class="subtitle-widget-format chef-name" (click)="onChefNameClick()">
+        {{ chefNameMode ? mealTitle : chefData.name }}
       </p>
     </div>
+    @if(!chefNameMode) {
     <p class="text-widget-format meal-description">{{ description }}</p>
     @if(allergies.length > 0) {
     <div class="allergens-row">
@@ -36,6 +41,13 @@
         <img [src]="allergy.logoPath" />
       </div>
       }
+    </div>
+    } } @else {
+    <p class="text-widget-format">{{ chefData.status }}</p>
+    <div class="citation-quote-row">
+      <p class="subtitle-widget-format">"</p>
+      <p class="subtitle-widget-format">{{ chefData.highlight }}</p>
+      <p class="subtitle-widget-format">"</p>
     </div>
     }
   </div>
