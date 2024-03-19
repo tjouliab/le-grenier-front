@@ -8,7 +8,7 @@
     [formGroup]="reservationForm"
     (ngSubmit)="submitForm()"
   >
-    <div class='all-form-fields'>
+    <div class="all-form-fields">
       <mat-form-field
         class="date-form-field"
         appearance="fill"
@@ -23,6 +23,7 @@
           [min]="minDate"
           [max]="maxDate"
           [placeholder]="datePlaceholder"
+          (dateChange)="onDateChange()"
           readonly
         />
         <mat-datepicker-toggle matSuffix [for]="picker"
@@ -35,10 +36,10 @@
 
       <app-time-dropdown
         class="time-dropdown"
-        [min]="InputTimeMinMax.MIN"
-        [max]="InputTimeMinMax.MAX"
+        [min]="InputTimeMinMax.MIN.clone()"
+        [max]="InputTimeMinMax.MAX.clone()"
+        [disableUnder]="InputTimeMinMax.DisableUnder"
         [minutesGap]="minutesGap"
-        [required]="required"
         (newTimeSelectionEvent)="updateFormTime($event)"
       ></app-time-dropdown>
 
