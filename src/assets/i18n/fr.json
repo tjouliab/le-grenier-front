@@ -53,6 +53,14 @@
       "TIME": "Heure"
     }
   },
+  "ROOMS": {
+    "RESERVATION": {
+      "ANIMALS": "Animaux",
+      "ARRIVAL_DATE": "Date d'arrivée",
+      "CHILDREN": "Enfants",
+      "DEPARTURE_DATE": "Date de départ"
+    }
+  },
   "SHARED": {
     "OK": "OK",
     "TIME": "Heure"
