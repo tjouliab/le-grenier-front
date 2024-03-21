@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
@@ -21,7 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 import moment from 'moment';
 
 const MY_FORMATS = {
@@ -60,6 +60,34 @@ const MY_FORMATS = {
   styleUrl: './room-reservation.component.scss',
 })
 export class RoomReservationComponent {
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    const clickedElement = event.target as HTMLElement;
+    if (
+      !this.childrenCheckboxContainer.nativeElement.contains(clickedElement)
+    ) {
+      this.childrenCheckboxFocused = false;
+    }
+    if (!this.petsCheckboxContainer.nativeElement.contains(clickedElement)) {
+      this.petsCheckboxFocused = false;
+    }
+  }
+
+  @ViewChild('childrenCheckboxContainer')
+  childrenCheckboxContainer: ElementRef;
+
+  @ViewChild('petsCheckboxContainer')
+  petsCheckboxContainer: ElementRef;
+
+  @ViewChild('childrenCheckbox')
+  childrenCheckbox: MatCheckbox;
+
+  @ViewChild('petsCheckbox')
+  petsCheckbox: MatCheckbox;
+
+  childrenCheckboxFocused: boolean = false;
+  petsCheckboxFocused: boolean = false;
+
   minStartDate: Date = new Date();
   maxStartDate: Date = new Date();
   minEndDate: Date = new Date();
@@ -128,5 +156,25 @@ export class RoomReservationComponent {
       },
       panelClass: 'error-snackbar',
     });
+  }
+
+  protected childrenCheckboxToggle($event?: MouseEvent): void {
+    this.childrenCheckboxFocused = true;
+    this.petsCheckboxFocused = false;
+    if ($event) {
+      $event.stopPropagation();
+      return;
+    }
+    this.childrenCheckbox.toggle();
+  }
+
+  protected petsCheckboxToggle($event?: MouseEvent): void {
+    this.childrenCheckboxFocused = false;
+    this.petsCheckboxFocused = true;
+    if ($event) {
+      $event.stopPropagation();
+      return;
+    }
+    this.petsCheckbox.toggle();
   }
 }

@@ -76,13 +76,18 @@
       </mat-form-field>
 
       <div class="checbox-row">
-        <div class="checkbox-container" (click)="childrenCheckbox.toggle()">
+        <div
+          #childrenCheckboxContainer
+          class="checkbox-container"
+          (click)="childrenCheckboxToggle()"
+          [class.element-focused]="childrenCheckboxFocused"
+        >
           <mat-checkbox
             #childrenCheckbox
             type="checkbox"
             formControlName="hasChildren"
             disableRipple="true"
-            (click)="$event.stopPropagation()"
+            (click)="childrenCheckboxToggle($event)"
           />
           <div class="label-container">
             <mat-label>{{
@@ -90,13 +95,18 @@
             }}</mat-label>
           </div>
         </div>
-        <div class="checkbox-container" (click)="petsCheckbox.toggle()">
+        <div
+          #petsCheckboxContainer
+          class="checkbox-container"
+          (click)="petsCheckboxToggle()"
+          [class.element-focused]="petsCheckboxFocused"
+        >
           <mat-checkbox
             #petsCheckbox
             type="checkbox"
             formControlName="hasPets"
             disableRipple="true"
-            (click)="$event.stopPropagation()"
+            (click)="petsCheckboxToggle($event)"
           />
           <div class="label-container">
             <mat-label>{{ "ROOMS.RESERVATION.ANIMALS" | translate }}</mat-label>
