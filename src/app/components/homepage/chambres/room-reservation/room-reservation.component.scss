@@ -87,6 +87,7 @@
 .date-form-field,
 .date-input {
   cursor: pointer;
+  z-index: 2;
 }
 
 .reservation-image {
@@ -107,13 +108,26 @@
 .checkbox-container {
   display: flex;
   align-self: flex-start;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   height: 100%;
+  box-shadow: 0 -1px 0 0 $dropdown-gray inset;
+  z-index: 2;
   cursor: pointer;
 }
 .checkbox-container:hover {
-  background-color: $hover-gray;
+  background-color: $hover-white;
+  box-shadow: 0 -1px 0 0 black inset;
+}
+.checkbox-container:active {
+  box-shadow: 0 -2px 0 0 $pink inset;
+}
+
+.label-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .form-field-message {

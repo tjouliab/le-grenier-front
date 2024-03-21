@@ -84,7 +84,11 @@
             disableRipple="true"
             (click)="$event.stopPropagation()"
           />
-          <mat-label>{{ "ROOMS.RESERVATION.CHILDREN" | translate }}</mat-label>
+          <div class="label-container">
+            <mat-label>{{
+              "ROOMS.RESERVATION.CHILDREN" | translate
+            }}</mat-label>
+          </div>
         </div>
         <div class="checkbox-container" (click)="petsCheckbox.toggle()">
           <mat-checkbox
@@ -94,7 +98,9 @@
             disableRipple="true"
             (click)="$event.stopPropagation()"
           />
-          <mat-label>{{ "ROOMS.RESERVATION.ANIMALS" | translate }}</mat-label>
+          <div class="label-container">
+            <mat-label>{{ "ROOMS.RESERVATION.ANIMALS" | translate }}</mat-label>
+          </div>
         </div>
       </div>
 
