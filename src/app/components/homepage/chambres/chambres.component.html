@@ -3,14 +3,16 @@
   <img src="assets/images/Grenier2.png" class="full-width-image" />
   <div class="chambres-container">
     <div>
-      <div class="spacer"></div>
-
-      <div class="spacer"></div>
-
-      <div class="spacer"></div>
-
-      <div class="spacer"></div>
+      <div class="up-spacer"></div>
+      <!-- Liste des chambres -->
+      <div class="bedroom-list">
+        @for(room of roomsToDisplay; track room) {
+        <app-bedroom [room]="room"></app-bedroom>
+        }
+      </div>
+      <div class="down-spacer"></div>
     </div>
+
     <!-- Reservation non scrollable -->
     <app-room-reservation class="reservation-container"></app-room-reservation>
   </div>

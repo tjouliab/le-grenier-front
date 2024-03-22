@@ -53,6 +53,12 @@
       "TIME": "Time"
     }
   },
+  "CHAMBRES": {
+    "COMPONENT": {
+      "CARACTERISTICS": "Specifications",
+      "PEOPLE": "people"
+    }
+  },
   "SHARED": {
     "OK": "OK",
     "TIME": "Time"
