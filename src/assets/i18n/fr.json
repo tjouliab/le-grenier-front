@@ -53,6 +53,12 @@
       "TIME": "Heure"
     }
   },
+  "CHAMBRES": {
+    "COMPONENT": {
+      "CARACTERISTICS": "Caractéristiques",
+      "PEOPLE": "personnes"
+    }
+  },
   "SHARED": {
     "OK": "OK",
     "TIME": "Heure"
