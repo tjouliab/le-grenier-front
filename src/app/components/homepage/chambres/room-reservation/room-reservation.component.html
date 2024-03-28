@@ -8,86 +8,122 @@
     [formGroup]="reservationForm"
     (ngSubmit)="submitForm()"
   >
-    <mat-form-field
-      class="date-form-field"
-      appearance="fill"
-      (click)="startPicker.open()"
-    >
-      <mat-label>Date d'arrivée</mat-label>
-      <input
-        matInput
-        class="date-input"
-        formControlName="startDate"
-        [matDatepicker]="startPicker"
-        [min]="minStartDate"
-        [max]="maxStartDate"
-        [placeholder]="datePlaceholder"
-        readonly
-      />
-      <mat-datepicker-toggle matSuffix [for]="startPicker"
-        ><mat-icon matDatepickerToggleIcon
-          >keyboard_arrow_down</mat-icon
-        ></mat-datepicker-toggle
+    <div class="all-form-fields">
+      <mat-form-field
+        class="date-form-field"
+        appearance="fill"
+        (click)="startPicker.open()"
       >
-      <mat-datepicker #startPicker></mat-datepicker>
-    </mat-form-field>
+        <mat-label>{{
+          "ROOMS.RESERVATION.ARRIVAL_DATE" | translate
+        }}</mat-label>
+        <input
+          matInput
+          class="date-input"
+          formControlName="startDate"
+          [matDatepicker]="startPicker"
+          [min]="minStartDate"
+          [max]="maxStartDate"
+          [placeholder]="datePlaceholder"
+          readonly
+        />
+        <mat-datepicker-toggle matSuffix [for]="startPicker"
+          ><mat-icon
+            class="icon-style"
+            [ngClass]="{ 'arrow-orientation': arrivalPopupOpened }"
+            matDatepickerToggleIcon
+            >keyboard_arrow_down</mat-icon
+          ></mat-datepicker-toggle
+        >
+        <mat-datepicker
+          #startPicker
+          (opened)="arrivalPopupOpened = true"
+          (closed)="arrivalPopupOpened = false"
+        ></mat-datepicker>
+      </mat-form-field>
 
-    <mat-form-field
-      class="date-form-field"
-      appearance="fill"
-      (click)="endPicker.open()"
-    >
-      <mat-label>Date de départ</mat-label>
-      <input
-        matInput
-        class="date-input"
-        formControlName="endDate"
-        [matDatepicker]="endPicker"
-        [min]="minEndDate"
-        [max]="maxEndDate"
-        [placeholder]="datePlaceholder"
-        readonly
-      />
-      <mat-datepicker-toggle matSuffix [for]="endPicker"
-        ><mat-icon matDatepickerToggleIcon
-          >keyboard_arrow_down</mat-icon
-        ></mat-datepicker-toggle
+      <mat-form-field
+        class="date-form-field"
+        appearance="fill"
+        (click)="endPicker.open()"
       >
-      <mat-datepicker #endPicker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label for="message">{{ "CONTACT.MESSAGE" | translate }}</mat-label>
-      <textarea
-        matInput
-        class="message-textarea"
-        formControlName="message"
-        [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
-        [maxlength]="messageMaxLength"
-      ></textarea>
-    </mat-form-field>
-
-    <div class="checbox-row">
-      <div class="checkbox-container" (click)="childrenCheckbox.toggle()">
-        <mat-checkbox
-          #childrenCheckbox
-          type="checkbox"
-          formControlName="hasChildren"
-          disableRipple="true"
-          (click)="$event.stopPropagation()"
+        <mat-label>{{
+          "ROOMS.RESERVATION.DEPARTURE_DATE" | translate
+        }}</mat-label>
+        <input
+          matInput
+          class="date-input"
+          formControlName="endDate"
+          [matDatepicker]="endPicker"
+          [min]="minEndDate"
+          [max]="maxEndDate"
+          [placeholder]="datePlaceholder"
+          readonly
         />
-        <mat-label>Enfants</mat-label>
+        <mat-datepicker-toggle matSuffix [for]="endPicker"
+          ><mat-icon
+            class="icon-style"
+            [ngClass]="{ 'arrow-orientation': departurePopupOpened }"
+            matDatepickerToggleIcon
+            >keyboard_arrow_down</mat-icon
+          ></mat-datepicker-toggle
+        >
+        <mat-datepicker
+          #endPicker
+          (opened)="departurePopupOpened = true"
+          (closed)="departurePopupOpened = false"
+        ></mat-datepicker>
+      </mat-form-field>
+
+      <div class="checbox-row">
+        <div
+          #childrenCheckboxContainer
+          class="checkbox-container"
+          (click)="childrenCheckboxToggle()"
+          [class.element-focused]="childrenCheckboxFocused"
+        >
+          <mat-checkbox
+            #childrenCheckbox
+            type="checkbox"
+            formControlName="hasChildren"
+            disableRipple="true"
+            (click)="childrenCheckboxToggle($event)"
+          />
+          <div class="label-container">
+            <mat-label>{{
+              "ROOMS.RESERVATION.CHILDREN" | translate
+            }}</mat-label>
+          </div>
+        </div>
+        <div
+          #petsCheckboxContainer
+          class="checkbox-container"
+          (click)="petsCheckboxToggle()"
+          [class.element-focused]="petsCheckboxFocused"
+        >
+          <mat-checkbox
+            #petsCheckbox
+            type="checkbox"
+            formControlName="hasPets"
+            disableRipple="true"
+            (click)="petsCheckboxToggle($event)"
+          />
+          <div class="label-container">
+            <mat-label>{{ "ROOMS.RESERVATION.ANIMALS" | translate }}</mat-label>
+          </div>
+        </div>
       </div>
-      <div class="checkbox-container" (click)="petsCheckbox.toggle()">
-        <mat-checkbox
-          #petsCheckbox
-          type="checkbox"
-          formControlName="hasPets"
-          disableRipple="true"
-          (click)="$event.stopPropagation()"
-        />
-        <mat-label>Animaux</mat-label>
-      </div>
+
+      <mat-form-field class="form-field-message">
+        <mat-label for="message">{{ "CONTACT.MESSAGE" | translate }}</mat-label>
+        <textarea
+          matInput
+          class="message-textarea"
+          formControlName="message"
+          [placeholder]="'CONTACT.PLACEHOLDERS.VOTRE_MESSAGE' | translate"
+          [maxlength]="messageMaxLength"
+        ></textarea>
+      </mat-form-field>
     </div>
 
     <button
