@@ -39,39 +39,39 @@ body {
 
 // Body
 .title-body-format {
-  font-size: 40px;
+  font-size: 50px;
   color: $khaki;
   font-family: "Yanone-Kaffeesatz-Regular", sans-serif;
 }
 
 .text-body-format {
-  font-size: 16px;
+  font-size: 18px;
   color: $black;
   font-family: "Montserrat-Regular", sans-serif;
   line-height: 160%;
 }
 
 .button-body-format {
-  font-size: 14px;
+  font-size: 16px;
   color: $white;
   font-family: "Montserrat-Regular", sans-serif;
 }
 
 // Header
 .title-header-format {
-  font-size: 30px;
-  color: $khaki;
+  font-size: 34px;
+  color: $black;
   font-family: "Yanone-Kaffeesatz-Regular", sans-serif;
 }
 
 .text-header-format {
-  font-size: 14px;
+  font-size: 17px;
   color: $black;
   font-family: "Montserrat-Regular", sans-serif;
 }
 
 .logo-header-format {
-  font-size: 30px;
+  font-size: 43px;
   color: $black;
   font-family: "Yanone-Kaffeesatz-Regular", sans-serif;
 }
@@ -85,22 +85,28 @@ body {
 
 // Widget
 .title-widget-format {
-  font-size: 30px;
+  font-size: 35px;
   color: $black;
   font-family: "Yanone-Kaffeesatz-Bold", sans-serif;
 }
 
 .subtitle-widget-format {
-  font-size: 12px;
+  font-size: 16px;
   color: gray;
   font-family: "Montserrat-Italic", sans-serif;
 }
 
 .text-widget-format {
-  font-size: 14px;
+  font-size: 18px;
   color: $black;
   font-family: "Montserrat-Regular", sans-serif;
   line-height: 120%;
+}
+
+.indicator-widget-format {
+  font-size: 22px;
+  color: $blue;
+  font-family: "Yanone-Kaffeesatz-Bold", sans-serif;
 }
 
 // Snackbars

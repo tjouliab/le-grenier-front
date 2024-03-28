@@ -1,94 +1,87 @@
 import {
+  ApplicationRef,
+  ComponentRef,
   Directive,
   ElementRef,
+  EmbeddedViewRef,
+  EnvironmentInjector,
   HostListener,
-  Injector,
   Input,
   OnDestroy,
   OnInit,
-  ViewContainerRef,
+  createComponent,
+  createEnvironmentInjector,
 } from '@angular/core';
-import {
-  ChefTooltipComponent,
-  TOOLTIP_DATA,
-} from '../components/tooltips/chef-tooltip/chef-tooltip.component';
-import { Overlay, OverlayRef, PositionStrategy } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
 
 @Directive({
   selector: '[appTooltip]',
   standalone: true,
 })
-export class TooltipDirective implements OnInit, OnDestroy {
-  @Input() appTooltip = '';
+export class TooltipDirective {
+  /* Do not delete, can be used later */
 
-  private overlayRef: OverlayRef = null;
+  // @Input() appTooltip = '';
 
-  constructor(
-    private element: ElementRef<HTMLElement>,
-    private overlay: Overlay,
-    private viewContainer: ViewContainerRef
-  ) {}
+  // private componentRef: ComponentRef<ChefTooltipComponent> = null;
 
-  ngOnInit(): void {
-    if (this.overlayRef === null) {
-      const positionStrategy = this.getPositionStrategy();
-      this.overlayRef = this.overlay.create({ positionStrategy });
-    }
-  }
+  // constructor(
+  //   private appRef: ApplicationRef,
+  //   private elementRef: ElementRef,
+  //   private injector: EnvironmentInjector
+  // ) {}
 
-  @HostListener('mouseenter')
-  showTooltip(): void {
-    if (this.overlayRef?.hasAttached() === true) {
-      return;
-    }
-    this.attachTooltip();
-  }
+  // ngOnInit(): void {}
 
-  @HostListener('mouseleave')
-  hideTooltip(): void {
-    if (this.overlayRef?.hasAttached() === true) {
-      this.overlayRef?.detach();
-    }
-  }
+  // @HostListener('mouseenter')
+  // onMouseEnter(): void {
+  //   if (this.componentRef === null) {
+  //     const environmentInjector = createEnvironmentInjector(
+  //       [
+  //         {
+  //           provide: TOOLTIP_DATA,
+  //           useValue: { tooltipText: this.appTooltip },
+  //         },
+  //       ],
+  //       this.injector
+  //     );
 
-  private attachTooltip(): void {
-    if (this.overlayRef === null) {
-      return;
-    }
+  //     this.componentRef = createComponent(ChefTooltipComponent, {
+  //       environmentInjector,
+  //     });
+  //     this.appRef.attachView(this.componentRef.hostView);
 
-    const injector = Injector.create({
-      providers: [
-        {
-          provide: TOOLTIP_DATA,
-          useValue: this.appTooltip,
-        },
-      ],
-    });
-    const component = new ComponentPortal(
-      ChefTooltipComponent,
-      this.viewContainer,
-      injector
-    );
-    this.overlayRef.attach(component);
-  }
+  //     const domElem = (this.componentRef.hostView as EmbeddedViewRef<any>)
+  //       .rootNodes[0] as HTMLElement;
 
-  private getPositionStrategy(): PositionStrategy {
-    return this.overlay
-      .position()
-      .flexibleConnectedTo(this.element)
-      .withPositions([
-        {
-          originX: 'center',
-          originY: 'bottom',
-          overlayX: 'center',
-          overlayY: 'top',
-          panelClass: 'bottom',
-        },
-      ]);
-  }
+  //     const rect = this.elementRef.nativeElement.getBoundingClientRect();
 
-  ngOnDestroy(): void {
-    this.overlayRef?.dispose();
-  }
+  //     domElem.style.position = 'absolute';
+  //     domElem.style.top = `${rect.bottom + window.scrollY}px`;
+  //     domElem.style.left = `${rect.left + window.scrollX}px`;
+
+  //     document.body.appendChild(domElem);
+  //   }
+  // }
+
+  // @HostListener('window:scroll')
+  // onWindowScroll(): void {
+  //   this.destroy();
+  // }
+
+  // @HostListener('mouseleave')
+  // onMouseLeave(): void {
+  //   this.destroy();
+  // }
+
+  // ngOnDestroy(): void {
+  //   this.destroy();
+  // }
+
+  // destroy(): void {
+  //   if (this.componentRef !== null) {
+  //     this.appRef.detachView(this.componentRef.hostView);
+  //     this.componentRef.destroy();
+  //     this.componentRef = null;
+  //   }
+  // }
 }
