@@ -53,27 +53,9 @@
       <span class="text-footer-format contact-info-text">
         {{ contactMail }}
       </span>
-      <span class="text-footer-format contact-info-text">
-        {{ contactPhone }}
-      </span>
     </div>
   </div>
   <div class="footer-links">
-    <div class="footer-links-routing">
-      <a class="text-footer-format routing-item-footer" routerLink="#">
-        {{ "HOMEPAGE.FOOTER.LEGAL" | translate }}
-      </a>
-      <a class="text-footer-format routing-item-footer" routerLink="#">
-        {{ "HOMEPAGE.FOOTER.CONFIDENTIALITY" | translate }}
-      </a>
-      <a class="text-footer-format routing-item-footer" routerLink="#">
-        {{ "HOMEPAGE.FOOTER.CGV" | translate }}
-      </a>
-      <a class="text-footer-format routing-item-footer" routerLink="#">
-        {{ "HOMEPAGE.FOOTER.FAQ" | translate }}
-      </a>
-    </div>
-    <p class="text-footer-format footer-trademark">&copy; {{ trademark }}</p>
     <div class="footer-profile-link">
       <p class="text-footer-format" style="margin: 0">Created by:&nbsp;</p>
       <a
@@ -83,6 +65,17 @@
       >
         Timothé JOULIA-BEA</a
       >
+    </div>
+    <div class="footer-profile-technos">
+      <a href="https://angular.io/" target="_blank">
+        <img style="height: 46px" src="assets/images/technos/angular.png" />
+      </a>
+      <a href="https://nodejs.org/en/" target="_blank">
+        <img style="height: 40px" src="assets/images/technos/nodejs.png" />
+      </a>
+      <a href="https://nestjs.com/" target="_blank">
+        <img style="height: 41px" src="assets/images/technos/nestjs.png" />
+      </a>
     </div>
   </div>
 </footer>
