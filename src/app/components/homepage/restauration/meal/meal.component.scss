@@ -84,6 +84,7 @@
   left: 50%;
   top: 80%;
   transform: translate(-50%, -50%);
+  cursor: default;
 }
 
 .chef-name {
@@ -115,7 +116,7 @@
   margin-bottom: 5px;
 }
 
-.chef-description-container{
+.chef-description-container {
   display: flex;
   flex-direction: column;
   align-items: center;
