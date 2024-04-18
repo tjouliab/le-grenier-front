@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,9 +27,20 @@ export class HomepageComponent {
   address: string;
   contactMail: string;
 
+  private lastScrollTop = 0;
+  protected scrollDirection: 'down' | 'up' = 'up';
+
   constructor(private router: Router) {
     this.address = ADDRESS;
     this.contactMail = CONTACT_EMAIL;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(): void {
+    let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+    this.scrollDirection =
+      currentScrollTop < this.lastScrollTop ? 'up' : 'down';
+    this.lastScrollTop = currentScrollTop;
   }
 
   getAutofocus(routerLink: string): boolean {
