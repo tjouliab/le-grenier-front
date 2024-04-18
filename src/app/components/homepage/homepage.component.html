@@ -2,8 +2,8 @@
 <mat-toolbar
   class="homepage-toolbar"
   [ngClass]="{
-    'homepage-toolbar-fixed': scrollDirection === 'up',
-    'homepage-toolbar-absolute': scrollDirection === 'down'
+    'homepage-toolbar-contracted': scrollDirection === 'up',
+    'homepage-toolbar-extended': scrollDirection === 'down'
   }"
 >
   <div class="homepage-toolbar-logo" routerLink="/accueil">
