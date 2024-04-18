@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SmtpService } from '../../../services/smtp.service';
 import { ContactFormMailDto } from '../../../dto/contactFormMailBody.dto';
-import { ADDRESS, CONTACT_EMAIL, CONTACT_PHONE } from '../../../../environment';
+import { ADDRESS, CONTACT_EMAIL } from '../../../../environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomSnackbarComponent } from '../../snackbars/custom-snackbar/custom-snackbar.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -36,7 +36,6 @@ import { finalize } from 'rxjs';
 export class ContactComponent {
   address: string;
   contactMail: string;
-  contactPhone: string;
 
   FormMaxLength = {
     NAME: 50,
@@ -74,7 +73,6 @@ export class ContactComponent {
   ) {
     this.address = ADDRESS;
     this.contactMail = CONTACT_EMAIL;
-    this.contactPhone = CONTACT_PHONE;
   }
 
   submitForm(): void {
