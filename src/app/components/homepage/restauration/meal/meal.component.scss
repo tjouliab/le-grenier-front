@@ -8,15 +8,27 @@
   height: 30vh;
 }
 
-.meal-image {
+.meal-image-container {
+  position: relative;
   border-radius: inherit;
 }
 
-.meal-image img {
+.meal-image-container img {
   width: auto;
+  top: 0;
+  left: 0;
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.meal-image-absolute {
+  position: absolute;
+}
+
+.meal-image-fade {
+  opacity: 0;
 }
 
 .meal-details {
@@ -47,12 +59,39 @@
   padding: 0;
 }
 
+.calendar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 100%;
+}
+
+.calendar {
+  position: relative;
+  width: auto;
+  height: 100%;
+  font-size: 35px;
+  color: $blue;
+}
+
+.calendar-indicator {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+}
+
 .chef-name {
   display: flex;
   align-self: flex-start;
   margin: 0;
   padding: 0;
-  cursor: default;
+  cursor: pointer;
 }
 
 .meal-display-row {
@@ -65,8 +104,23 @@
 .meal-description {
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: overlay;
   text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.chef-description-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: overlay;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -93,4 +147,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.citation-quote-row {
+  display: flex;
+  flex-direction: row;
 }

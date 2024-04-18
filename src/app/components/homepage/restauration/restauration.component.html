@@ -10,7 +10,11 @@
       </p>
       <div class="meal-list">
         @for(meal of entriesList; track meal) {
-        <app-meal [meal]="meal"></app-meal>
+        <app-meal
+          [meal]="meal"
+          [chefNameMode]="chefNameMode"
+          (chefNameClick)="chefNameOnClick()"
+        ></app-meal>
         }
       </div>
 
@@ -21,7 +25,11 @@
       </p>
       <div class="meal-list">
         @for(meal of mainList; track meal) {
-        <app-meal [meal]="meal"></app-meal>
+        <app-meal
+          [meal]="meal"
+          [chefNameMode]="chefNameMode"
+          (chefNameClick)="chefNameOnClick()"
+        ></app-meal>
         }
       </div>
 
@@ -32,7 +40,11 @@
       </p>
       <div class="meal-list">
         @for(meal of dessertList; track meal) {
-        <app-meal [meal]="meal"></app-meal>
+        <app-meal
+          [meal]="meal"
+          [chefNameMode]="chefNameMode"
+          (chefNameClick)="chefNameOnClick()"
+        ></app-meal>
         }
       </div>
       <div class="down-spacer"></div>

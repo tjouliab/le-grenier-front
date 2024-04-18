@@ -27,10 +27,12 @@ export class RestaurationComponent {
   mainList: MealDto[];
   dessertList: MealDto[];
 
+  chefNameMode = false;
+
   constructor(
     private translate: TranslateService,
     private mealsService: MealsService,
-    private _snackBar: MatSnackBar,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -72,5 +74,9 @@ export class RestaurationComponent {
       },
       panelClass: 'error-snackbar',
     });
+  }
+
+  protected chefNameOnClick(): void {
+    this.chefNameMode = !this.chefNameMode;
   }
 }
