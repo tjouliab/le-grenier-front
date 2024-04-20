@@ -1,5 +1,11 @@
 <!-- Header -->
-<mat-toolbar class="homepage-toolbar">
+<mat-toolbar
+  class="homepage-toolbar"
+  [ngClass]="{
+    'homepage-toolbar-extended': scrollDirection === 'up',
+    'homepage-toolbar-contracted': scrollDirection === 'down'
+  }"
+>
   <div class="homepage-toolbar-logo" routerLink="/accueil">
     <span class="logo-header-format">Le&nbsp;</span>
     <img class="homepage-logo" src="assets/images/logo2.png" />
@@ -41,7 +47,6 @@
 </mat-toolbar>
 
 <!-- Page content -->
-<div class="header-body-spacer"></div>
 <router-outlet class="page-content"></router-outlet>
 
 <!-- Footer -->

@@ -16,7 +16,11 @@
         @if(!chefNameMode) {
         <p class="title-widget-format price">{{ price }}</p>
         } @else {
-        <div class="calendar-container">
+        <div
+          class="calendar-container"
+          matTooltipClass="arrival-calendar-tooltip"
+          [matTooltip]="formatedArrivalDate"
+        >
           <mat-icon class="calendar">calendar_today</mat-icon>
           <p class="calendar-indicator indicator-widget-format">
             {{ chefYearsOfExperience }}

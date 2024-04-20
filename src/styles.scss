@@ -134,6 +134,11 @@ body {
   --mdc-plain-tooltip-supporting-text-size: 16px;
 }
 
+.arrival-calendar-tooltip {
+  --mdc-plain-tooltip-container-color: #3a545f;
+  --mdc-plain-tooltip-supporting-text-size: 16px;
+}
+
 // Dropdowns
 .icon-style {
   color: $icon-gray;

@@ -98,7 +98,7 @@ export class RoomReservationComponent {
 
   reservationForm = new FormGroup({
     startDate: new FormControl(moment(), [Validators.required]),
-    endDate: new FormControl(moment(), [Validators.required]),
+    endDate: new FormControl(moment().add(1, 'day'), [Validators.required]),
     hasChildren: new FormControl(false, [Validators.required]),
     hasPets: new FormControl(false, [Validators.required]),
     message: new FormControl('', [Validators.maxLength(this.messageMaxLength)]),
@@ -117,6 +117,10 @@ export class RoomReservationComponent {
   ngOnInit(): void {
     this.setupLocalDateFormat();
     // Setup start date input
+    const currentDay: number = new Date().getDate();
+    this.minEndDate.setDate(currentDay + 1);
+    this.maxEndDate.setDate(currentDay + 1);
+
     const currentMonth: number = new Date().getMonth();
     this.maxStartDate.setMonth(currentMonth + 1);
     this.maxEndDate.setMonth(currentMonth + 1);

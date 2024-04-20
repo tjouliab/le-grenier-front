@@ -51,6 +51,9 @@
       "PERSON_NUMBER": "Nombre de personnes",
       "RESERVATION": "Réserver",
       "TIME": "Heure"
+    },
+    "TOOLTIP": {
+      "ARRIVAL_DATE": "Arrivée en"
     }
   },
   "ROOMS": {

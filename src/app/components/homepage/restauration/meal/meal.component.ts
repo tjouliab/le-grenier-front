@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   MealTypes,
   MealPrices,
@@ -46,6 +46,9 @@ export class MealComponent {
   chefData: ChefData;
 
   chefYearsOfExperience: number;
+  formatedArrivalDate: string;
+
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
     if (!this.meal) {
@@ -61,6 +64,7 @@ export class MealComponent {
     this.chefData = this.meal.chefData;
 
     this.calculateYearsOfExperience();
+    this.formatArrivalDate();
   }
 
   protected onChefNameClick(): void {
@@ -70,5 +74,13 @@ export class MealComponent {
   private calculateYearsOfExperience(): void {
     this.chefYearsOfExperience =
       moment().diff(moment(this.chefData.arrivalDay), 'years') + 1;
+  }
+
+  private formatArrivalDate(): void {
+    const arrivalDate = this.translate.instant(
+      'RESTAURATION.TOOLTIP.ARRIVAL_DATE'
+    );
+    const formatDate = moment(this.chefData.arrivalDay).format('MMMM YYYY');
+    this.formatedArrivalDate = `${arrivalDate} ${formatDate}`;
   }
 }

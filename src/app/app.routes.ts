@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'chambres', component: ChambresComponent },
   { path: 'restauration', component: RestaurationComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '**', redirectTo: '/accueil' },
 ];
 
 @NgModule({
