@@ -2,6 +2,7 @@ import { Allergy } from './allergy.dto';
 import { ChefData } from './chef.dto';
 
 export class MealDto {
+  id: number;
   imagePath: string;
   chefName: string;
   mealTitle: string;

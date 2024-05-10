@@ -9,12 +9,8 @@
         {{ "RESTAURATION.PAGE.ENTRIES" | translate }}
       </p>
       <div class="meal-list">
-        @for(meal of entriesList; track meal) {
-        <app-meal
-          [meal]="meal"
-          [chefNameMode]="chefNameMode"
-          (chefNameClick)="chefNameOnClick()"
-        ></app-meal>
+        @for(meal of entriesList; track meal.id) {
+        <app-meal [meal]="meal"></app-meal>
         }
       </div>
 
@@ -24,12 +20,8 @@
         {{ "RESTAURATION.PAGE.MAIN" | translate }}
       </p>
       <div class="meal-list">
-        @for(meal of mainList; track meal) {
-        <app-meal
-          [meal]="meal"
-          [chefNameMode]="chefNameMode"
-          (chefNameClick)="chefNameOnClick()"
-        ></app-meal>
+        @for(meal of mainList; track meal.id) {
+        <app-meal [meal]="meal"></app-meal>
         }
       </div>
 
@@ -39,12 +31,8 @@
         {{ "RESTAURATION.PAGE.DESSERTS" | translate }}
       </p>
       <div class="meal-list">
-        @for(meal of dessertList; track meal) {
-        <app-meal
-          [meal]="meal"
-          [chefNameMode]="chefNameMode"
-          (chefNameClick)="chefNameOnClick()"
-        ></app-meal>
+        @for(meal of dessertList; track meal.id) {
+        <app-meal [meal]="meal"></app-meal>
         }
       </div>
       <div class="down-spacer"></div>

@@ -30,12 +30,6 @@ export class MealComponent {
   @Input()
   meal: MealDto;
 
-  @Input()
-  chefNameMode = false;
-
-  @Output()
-  chefNameClick = new EventEmitter<boolean>();
-
   imageUrl: string;
   chefName: string;
   mealTitle: string;
@@ -45,6 +39,7 @@ export class MealComponent {
   allergies: Allergy[];
   chefData: ChefData;
 
+  chefNameMode: boolean = false;
   chefYearsOfExperience: number;
   formatedArrivalDate: string;
 
@@ -68,7 +63,7 @@ export class MealComponent {
   }
 
   protected onChefNameClick(): void {
-    this.chefNameClick.emit(true);
+    this.chefNameMode = !this.chefNameMode;
   }
 
   private calculateYearsOfExperience(): void {
