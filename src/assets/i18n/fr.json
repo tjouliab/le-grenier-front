@@ -16,6 +16,20 @@
     "SUJET": "Sujet",
     "USER_MAIL": "Adresse mail"
   },
+  "HOME": {
+    "SERVICE_TITLE": "Nos services",
+    "SERVICES": {
+      "ACCESSIBLITY": "Accessible aux fauteuils roulants",
+      "BARMAN": "Barman professionnel",
+      "BIRTHDAYS": "Organisation d'anniversaires",
+      "CANCELATION": "Annulations sans frais",
+      "PERSONNAL": "Un personnel à votre écoute",
+      "RELAXATION": "Espace détente",
+      "ROOM_SERVICE": "Service de chambre",
+      "TRIP": "Transport pris en charge lors d'un voyage",
+      "WIFI": "Wifi gratuite 24h/24h"
+    }
+  },
   "HOMEPAGE": {
     "HEADER": {
       "ACCUEIL": "Accueil",
