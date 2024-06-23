@@ -5,7 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageDropdownComponent } from '../language-dropdown/language-dropdown.component';
-import { ADDRESS, CONTACT_EMAIL } from '../../../environment';
+import { ADDRESS, CONTACT_EMAIL } from '../../../environments/environment';
 import { AutoFocusDirective } from '../../directives/autofocus.directive';
 
 @Component({

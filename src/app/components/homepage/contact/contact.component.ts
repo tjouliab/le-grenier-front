@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SmtpService } from '../../../services/smtp.service';
 import { ContactFormMailDto } from '../../../dto/contactFormMailBody.dto';
-import { ADDRESS, CONTACT_EMAIL } from '../../../../environment';
+import { ADDRESS, CONTACT_EMAIL } from '../../../../environments/environment';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { finalize } from 'rxjs';
 import { SnackbarService } from '../../snackbars/snackbar.service';

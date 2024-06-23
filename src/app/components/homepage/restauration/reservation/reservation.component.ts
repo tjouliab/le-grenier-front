@@ -26,7 +26,10 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { TimeDropdownComponent } from '../../../time-dropdown/time-dropdown.component';
 import { delay, of } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { CLOSING_HOUR, OPENING_HOUR } from '../../../../../environment';
+import {
+  CLOSING_HOUR,
+  OPENING_HOUR,
+} from '../../../../../environments/environment';
 import { SnackbarService } from '../../../snackbars/snackbar.service';
 
 const MY_FORMATS = {
