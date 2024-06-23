@@ -79,7 +79,8 @@
       "ANIMALS": "Animaux",
       "ARRIVAL_DATE": "Date d'arrivée",
       "CHILDREN": "Enfants",
-      "DEPARTURE_DATE": "Date de départ"
+      "DEPARTURE_DATE": "Date de départ",
+      "ROOM(S)": "Chambre(s)"
     }
   },
   "SHARED": {

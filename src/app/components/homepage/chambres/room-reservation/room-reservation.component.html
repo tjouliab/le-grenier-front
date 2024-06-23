@@ -75,6 +75,31 @@
         ></mat-datepicker>
       </mat-form-field>
 
+      <mat-form-field appearance="fill" class="room-drodown-container">
+        <mat-label>{{ "ROOMS.RESERVATION.ROOM(S)" | translate }}</mat-label>
+        <mat-select
+          (openedChange)="onOpenedChange($event)"
+          formControlName="selectedRooms"
+          multiple
+        >
+          @for (room of rooms; track room.id) {
+          <mat-option [value]="room.id">
+            <div>
+              <span>
+                {{ room.bedroomName }}
+              </span>
+            </div>
+          </mat-option>
+          }
+        </mat-select>
+        <mat-icon
+          class="icon-style"
+          [ngClass]="{ 'arrow-orientation': roomsDropdownOpened }"
+          matSuffix
+          >keyboard_arrow_down</mat-icon
+        >
+      </mat-form-field>
+
       <div class="checbox-row">
         <div
           #childrenCheckboxContainer

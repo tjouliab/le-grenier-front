@@ -1,6 +1,10 @@
 @import "../../../../../styles/colors.scss";
 @import "../../../../../styles.scss";
 
+:host ::ng-deep .mat-mdc-select-arrow {
+  display: none;
+}
+
 :host ::ng-deep .mat-mdc-button-ripple {
   display: none;
 }
@@ -103,6 +107,10 @@
   height: auto;
   max-height: 100%;
   object-fit: scale-down;
+}
+
+.room-drodown-container{
+  width: 100%;
 }
 
 .checbox-row {

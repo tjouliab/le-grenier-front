@@ -12,6 +12,7 @@ import {
   FormControl,
   Validators,
   ReactiveFormsModule,
+  FormsModule,
 } from '@angular/forms';
 import { of, delay } from 'rxjs';
 import { CustomSnackbarComponent } from '../../../snackbars/custom-snackbar/custom-snackbar.component';
@@ -23,6 +24,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 import moment from 'moment';
+import { RoomsService } from '../../../../services/rooms.service';
+import { BedroomDto } from '../../../../dto/bedroom.dto';
+import { MatSelectModule } from '@angular/material/select';
 
 const MY_FORMATS = {
   parse: {
@@ -51,6 +55,8 @@ const MY_FORMATS = {
     MatMomentDateModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    MatSelectModule,
+    FormsModule,
   ],
   providers: [
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
@@ -88,6 +94,9 @@ export class RoomReservationComponent {
   childrenCheckboxFocused: boolean = false;
   petsCheckboxFocused: boolean = false;
 
+  rooms: BedroomDto[] = [];
+  roomsDropdownOpened: boolean = false;
+
   minStartDate: Date = new Date();
   maxStartDate: Date = new Date();
   minEndDate: Date = new Date();
@@ -99,6 +108,7 @@ export class RoomReservationComponent {
   reservationForm = new FormGroup({
     startDate: new FormControl(moment(), [Validators.required]),
     endDate: new FormControl(moment().add(1, 'day'), [Validators.required]),
+    selectedRooms: new FormControl([], [Validators.required]),
     hasChildren: new FormControl(false, [Validators.required]),
     hasPets: new FormControl(false, [Validators.required]),
     message: new FormControl('', [Validators.maxLength(this.messageMaxLength)]),
@@ -110,6 +120,7 @@ export class RoomReservationComponent {
 
   constructor(
     private translate: TranslateService,
+    private roomsService: RoomsService,
     private _snackBar: MatSnackBar,
     private _adapter: DateAdapter<any>
   ) {}
@@ -124,6 +135,19 @@ export class RoomReservationComponent {
     const currentMonth: number = new Date().getMonth();
     this.maxStartDate.setMonth(currentMonth + 1);
     this.maxEndDate.setMonth(currentMonth + 1);
+
+    // Get room list
+    this.roomsService.findAllRooms().subscribe({
+      next: (response: BedroomDto[]) => {
+        this.rooms = response;
+      },
+      error: (error) => {
+        // this.openErrorSnackBar(
+        //   this.translate.instant('SNACKBARS.SERVER_ERROR'),
+        //   this.translate.instant('SHARED.OK')
+        // );
+      },
+    });
   }
 
   submitForm(): void {
@@ -131,7 +155,7 @@ export class RoomReservationComponent {
       return;
     }
     this.loadingSubmit = true;
-    of('reponse')
+    of('response')
       .pipe(delay(2000))
       .subscribe((data) => {
         this.loadingSubmit = false;
@@ -180,5 +204,9 @@ export class RoomReservationComponent {
       return;
     }
     this.petsCheckbox.toggle();
+  }
+
+  protected onOpenedChange($event: boolean): void {
+    this.roomsDropdownOpened = $event;
   }
 }

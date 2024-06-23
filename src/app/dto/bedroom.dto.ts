@@ -1,4 +1,5 @@
 export class BedroomDto {
+  id: number;
   imagesPath: string[];
   bedroomName: string;
   numberPersonMax: number;
