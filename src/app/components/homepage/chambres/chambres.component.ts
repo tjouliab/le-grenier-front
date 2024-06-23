@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RoomReservationComponent } from './room-reservation/room-reservation.component';
 import { BedroomDto } from '../../../dto/bedroom.dto';
 import { RoomsService } from '../../../services/rooms.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { CustomSnackbarComponent } from '../../snackbars/custom-snackbar/custom-snackbar.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { BedroomComponent } from "./bedroom/bedroom.component";
+import { SnackbarService } from '../../snackbars/snackbar.service';
 
 @Component({
     selector: 'app-chambres',
@@ -21,7 +20,7 @@ export class ChambresComponent {
   constructor(
     private translate: TranslateService,
     private roomsService: RoomsService,
-    private _snackBar: MatSnackBar
+    private snackbarService: SnackbarService,
   ) {}
 
   ngOnInit(): void {
@@ -30,22 +29,11 @@ export class ChambresComponent {
         this.roomsToDisplay = response;
       },
       error: (error) => {
-        this.openErrorSnackBar(
+        this.snackbarService.openErrorSnackbar(
           this.translate.instant('SNACKBARS.SERVER_ERROR'),
           this.translate.instant('SHARED.OK')
         );
       },
-    });
-  }
-
-  private openErrorSnackBar(message: string, action: string): void {
-    this._snackBar.openFromComponent(CustomSnackbarComponent, {
-      duration: 5000,
-      data: {
-        message,
-        action,
-      },
-      panelClass: 'error-snackbar',
     });
   }
 }

@@ -13,10 +13,9 @@ import { MatInputModule } from '@angular/material/input';
 import { SmtpService } from '../../../services/smtp.service';
 import { ContactFormMailDto } from '../../../dto/contactFormMailBody.dto';
 import { ADDRESS, CONTACT_EMAIL } from '../../../../environment';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { CustomSnackbarComponent } from '../../snackbars/custom-snackbar/custom-snackbar.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { finalize } from 'rxjs';
+import { SnackbarService } from '../../snackbars/snackbar.service';
 
 @Component({
   selector: 'app-contact',
@@ -69,7 +68,7 @@ export class ContactComponent {
   constructor(
     private translate: TranslateService,
     private smtpService: SmtpService,
-    private _snackBar: MatSnackBar
+    private snackbarService: SnackbarService
   ) {
     this.address = ADDRESS;
     this.contactMail = CONTACT_EMAIL;
@@ -97,39 +96,17 @@ export class ContactComponent {
       .subscribe({
         next: (response) => {
           this.clearContactForm();
-          this.openSuccessSnackBar(
+          this.snackbarService.openSuccessSnackBar(
             this.translate.instant('SNACKBARS.MESSAGE_SENT'),
             this.translate.instant('SHARED.OK')
           );
         },
         error: (error) =>
-          this.openErrorSnackBar(
+          this.snackbarService.openErrorSnackbar(
             this.translate.instant('SNACKBARS.SERVER_ERROR'),
             this.translate.instant('SHARED.OK')
           ),
       });
-  }
-
-  openSuccessSnackBar(message: string, action: string): void {
-    this._snackBar.openFromComponent(CustomSnackbarComponent, {
-      duration: 5000,
-      data: {
-        message,
-        action,
-      },
-      panelClass: 'success-snackbar',
-    });
-  }
-
-  openErrorSnackBar(message: string, action: string): void {
-    this._snackBar.openFromComponent(CustomSnackbarComponent, {
-      duration: 5000,
-      data: {
-        message,
-        action,
-      },
-      panelClass: 'error-snackbar',
-    });
   }
 
   clearContactForm(): void {

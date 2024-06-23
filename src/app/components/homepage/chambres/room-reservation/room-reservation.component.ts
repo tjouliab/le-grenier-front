@@ -5,7 +5,6 @@ import {
   MatMomentDateModule,
 } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   FormGroup,
@@ -15,7 +14,6 @@ import {
   FormsModule,
 } from '@angular/forms';
 import { of, delay } from 'rxjs';
-import { CustomSnackbarComponent } from '../../../snackbars/custom-snackbar/custom-snackbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -27,6 +25,7 @@ import moment from 'moment';
 import { RoomsService } from '../../../../services/rooms.service';
 import { BedroomDto } from '../../../../dto/bedroom.dto';
 import { MatSelectModule } from '@angular/material/select';
+import { SnackbarService } from '../../../snackbars/snackbar.service';
 
 const MY_FORMATS = {
   parse: {
@@ -121,7 +120,7 @@ export class RoomReservationComponent {
   constructor(
     private translate: TranslateService,
     private roomsService: RoomsService,
-    private _snackBar: MatSnackBar,
+    private snackbarService: SnackbarService,
     private _adapter: DateAdapter<any>
   ) {}
 
@@ -142,10 +141,10 @@ export class RoomReservationComponent {
         this.rooms = response;
       },
       error: (error) => {
-        // this.openErrorSnackBar(
-        //   this.translate.instant('SNACKBARS.SERVER_ERROR'),
-        //   this.translate.instant('SHARED.OK')
-        // );
+        this.snackbarService.openErrorSnackbar(
+          this.translate.instant('SNACKBARS.SERVER_ERROR'),
+          this.translate.instant('SHARED.OK')
+        );
       },
     });
   }
@@ -159,7 +158,7 @@ export class RoomReservationComponent {
       .pipe(delay(2000))
       .subscribe((data) => {
         this.loadingSubmit = false;
-        this.openSnackBar(
+        this.snackbarService.openErrorSnackbar(
           this.translate.instant('SNACKBARS.RESERVATION_FULL'),
           this.translate.instant('SHARED.OK')
         );
@@ -172,17 +171,6 @@ export class RoomReservationComponent {
       next: (event: { lang: string }) => {
         this._adapter.setLocale(event.lang);
       },
-    });
-  }
-
-  openSnackBar(message: string, action: string): void {
-    this._snackBar.openFromComponent(CustomSnackbarComponent, {
-      duration: 5000,
-      data: {
-        message,
-        action,
-      },
-      panelClass: 'error-snackbar',
     });
   }
 

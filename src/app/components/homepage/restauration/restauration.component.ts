@@ -5,19 +5,12 @@ import { MealComponent } from './meal/meal.component';
 import { MealDto, MealTypes } from '../../../dto/mealDisplay.dto';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MealsService } from '../../../services/meals.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { CustomSnackbarComponent } from '../../snackbars/custom-snackbar/custom-snackbar.component';
+import { SnackbarService } from '../../snackbars/snackbar.service';
 
 @Component({
   selector: 'app-restauration',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReservationComponent,
-    MealComponent,
-    TranslateModule,
-    CustomSnackbarComponent,
-  ],
+  imports: [CommonModule, ReservationComponent, MealComponent, TranslateModule],
   templateUrl: './restauration.component.html',
   styleUrl: './restauration.component.scss',
 })
@@ -32,7 +25,7 @@ export class RestaurationComponent {
   constructor(
     private translate: TranslateService,
     private mealsService: MealsService,
-    private _snackBar: MatSnackBar
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +35,7 @@ export class RestaurationComponent {
         this.initMealListByType();
       },
       error: (error) => {
-        this.openErrorSnackBar(
+        this.snackbarService.openErrorSnackbar(
           this.translate.instant('SNACKBARS.SERVER_ERROR'),
           this.translate.instant('SHARED.OK')
         );
@@ -63,17 +56,6 @@ export class RestaurationComponent {
     this.dessertList = this.mealsToDisplay.filter(
       (meal) => meal.type === MealTypes.Dessert
     );
-  }
-
-  openErrorSnackBar(message: string, action: string): void {
-    this._snackBar.openFromComponent(CustomSnackbarComponent, {
-      duration: 5000,
-      data: {
-        message,
-        action,
-      },
-      panelClass: 'error-snackbar',
-    });
   }
 
   protected chefNameOnClick(): void {
