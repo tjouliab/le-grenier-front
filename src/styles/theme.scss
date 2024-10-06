@@ -101,10 +101,10 @@ $bv-red: (
   ),
 );
 
-$my-app-primary: mat.define-palette($bv-pink);
-$my-app-accent: mat.define-palette($bv-blue);
-$my-app-warn: mat.define-palette($bv-red);
-$my-app-theme: mat.define-light-theme(
+$my-app-primary: mat.m2-define-palette($bv-pink);
+$my-app-accent: mat.m2-define-palette($bv-blue);
+$my-app-warn: mat.m2-define-palette($bv-red);
+$my-app-theme: mat.m2-define-light-theme(
   $my-app-primary,
   $my-app-accent,
   $my-app-warn
